@@ -1,4 +1,8 @@
 import { ProfileInfo, Project, ExperienceItem, SkillCategory, SocialLink, DirectiveStat, HobbyItem } from '../types';
+import sai_avatar_pubg from '../assets/images/sai_avatar_pubg_1788200871542.jpg';
+import pubg_uaz_vehicle from '../assets/images/pubg_uaz_vehicle_1788199428838.jpg';
+import pubg_title_scene from '../assets/images/pubg_title_scene_1788200859236.jpg';
+import pubg_lobby_scene from '../assets/images/pubg_lobby_scene_1788200846251.jpg';
 
 export const HOBBIES_DATA: HobbyItem[] = [
   {
@@ -64,11 +68,11 @@ export const PROFILE_DATA: ProfileInfo = {
   coordinates: '29.6161° N, 95.5577° W',
   serverPing: '16ms',
   serverRegion: 'US-CENTRAL // TEXAS-SEC-01',
-  avatar: '/src/assets/images/sai_avatar_pubg_1788200871542.jpg',
-  characterImage: '/src/assets/images/sai_avatar_pubg_1788200871542.jpg',
-  vehicleImage: '/src/assets/images/pubg_uaz_vehicle_1788199428838.jpg',
-  titleBgImage: '/src/assets/images/pubg_title_scene_1788200859236.jpg',
-  lobbyBgImage: '/src/assets/images/pubg_lobby_scene_1788200846251.jpg',
+      avatar: sai_avatar_pubg,
+  characterImage: sai_avatar_pubg,
+  vehicleImage: pubg_uaz_vehicle,
+    titleBgImage: pubg_title_scene,
+    lobbyBgImage: pubg_lobby_scene,
   shortBio: 'Backend & AI Engineer specialized in production LLM agents, high-throughput Python microservices, and safety-critical evaluation tooling.',
   bio: 'I am a Backend & AI Engineer based in Stafford, Texas. I architect production-grade LLM autonomous agents, scalable Python microservices, distributed streaming backends, and safety-critical verification pipelines. My focus centers on reliable agent orchestration, sub-millisecond retrieval architectures, and deterministic test harnesses for non-deterministic AI systems.',
   yearsOfExperience: '5+ Years',
