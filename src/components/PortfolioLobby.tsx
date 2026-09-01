@@ -464,7 +464,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
       </div>
 
       {/* 5. LEFT-SIDE NAVIGATION PANELS (Desktop only to prevent cluttering mobile view) */}
-      <div className="hidden md:flex absolute left-4 md:left-6 top-20 sm:top-24 z-20 flex-col space-y-2 sm:space-y-2.5 w-44 sm:w-52 pointer-events-auto">
+      <div className="hidden lg:flex absolute left-4 lg:left-6 top-20 sm:top-24 z-20 flex-col space-y-2 sm:space-y-2.5 w-44 sm:w-52 pointer-events-auto">
         {/* Panel 1: HOBBIES (Renamed from About Me) */}
         <button
           id="hud-nav-hobbies"
@@ -622,7 +622,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
       </div>
 
       {/* 7. RESPONSIVE LOWER MODE SELECTOR & GIANT START BUTTON */}
-      <div className="absolute left-3 sm:left-4 md:left-6 bottom-14 sm:bottom-16 z-20 flex flex-col space-y-1.5 sm:space-y-2 pointer-events-auto">
+              <div className="absolute left-3 sm:left-4 md:left-6 bottom-16 sm:bottom-16 z-20 flex flex-col space-y-1.5 sm:space-y-2 pointer-events-auto">
         {/* Mode Selector Card */}
         <div
           onClick={cycleFocusMode}
@@ -662,7 +662,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </div>
 
         {/* Center Quick Navigation Tabs (Cleaned, Workshop removed) */}
-        <div className="flex items-center space-x-1 sm:space-x-3 overflow-x-auto py-1">
+        <div className="flex items-center space-x-1 sm:space-x-3 overflow-x-auto py-1 flex-1 min-w-0">
           <button
             onClick={() => handleOpenTab('hobbies')}
             className="flex items-center space-x-1 px-2 sm:px-2.5 py-1 font-display font-bold text-[11px] sm:text-xs uppercase text-[#A6A6A0] hover:text-[#FFB900] transition-colors whitespace-nowrap"
@@ -695,7 +695,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </div>
 
         {/* Right Controls: Audio Visualizer & Mute & Return to Title Screen */}
-        <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+        <div className="flex items-center space-x-1.5 sm:space-x-2.5 flex-shrink-0">
           {/* Active PUBG Theme Music Visualizer */}
           <button 
             id="lobby-theme-music-banner"
@@ -714,7 +714,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               <span className={`w-0.5 bg-[#FFB900] ${soundState.isPlaying ? 'animate-[bounce_0.6s_infinite_0.2s]' : 'h-1'}`} style={{ height: soundState.isPlaying ? '100%' : '20%' }} />
               <span className={`w-0.5 bg-[#FFB900] ${soundState.isPlaying ? 'animate-[bounce_0.9s_infinite_0.4s]' : 'h-1'}`} style={{ height: soundState.isPlaying ? '60%' : '20%' }} />
             </div>
-            <span className="font-bold whitespace-nowrap">
+                          <span className="font-bold whitespace-nowrap hidden sm:inline">
               {soundState.isPlaying 
                 ? 'THEME: PLAYING' 
                 : soundState.isMuted 
