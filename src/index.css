@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #FFB900;
+    --primary-bright: #FFC51B;
+    --secondary: #D8940B;
+    --background: #080B0D;
+    --hud-dark: rgba(15, 19, 23, 0.90);
+    --hud-border: #3A3F45;
+    --surface: #15181A;
+    --text: #F5F5F0;
+    --muted: #9E9EA0;
+    --border: #393936;
+    --accent: #FFCC2E;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    overflow: hidden;
+  }
+}
+
+.font-display {
+  font-family: 'Oswald', 'Bebas Neue', Impact, sans-serif;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Distressed / Cinematic Golden Typography Styles for Stage 1 */
+.pubg-distressed-title {
+  background: linear-gradient(180deg, #FFF6BD 0%, #FFB900 32%, #E59F00 70%, #9B6200 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 4px 18px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 35px rgba(255, 185, 0, 0.4));
+  letter-spacing: -0.01em;
+}
+
+.pubg-distressed-stroke {
+  text-shadow: 
+    3px 3px 0px #000,
+    -3px -3px 0px #000,
+    3px -3px 0px #000,
+    -3px 3px 0px #000,
+    0 10px 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Game Start Giant Button */
+.pubg-start-btn {
+  background: linear-gradient(180deg, #FFD233 0%, #FFB900 45%, #E69D00 100%);
+  box-shadow: 0 4px 25px rgba(255, 185, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pubg-start-btn:hover {
+  background: linear-gradient(180deg, #FFE066 0%, #FFC51B 45%, #F0A500 100%);
+  box-shadow: 0 6px 35px rgba(255, 185, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+.pubg-start-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(255, 185, 0, 0.3);
+}
+
+/* PUBG Yellow Frame Border */
+.pubg-lobby-frame {
+  border: 3px solid #FFB900;
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+/* HUD Panel styling */
+.hud-panel {
+  background: rgba(14, 18, 22, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease-out;
+}
+
+.hud-panel:hover {
+  background: rgba(22, 28, 34, 0.94);
+  border-color: rgba(255, 185, 0, 0.6);
+}
+
+.hud-panel-active {
+  background: rgba(28, 34, 40, 0.96) !important;
+  border-color: #FFB900 !important;
+  box-shadow: 0 0 20px rgba(255, 185, 0, 0.25);
+}
+
+/* Scanlines overlay */
+.pubg-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Pulsing text glow */
+@keyframes pubgPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.985); }
+}
+
+.animate-pubg-pulse {
+  animation: pubgPulse 2.2s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080B0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #393936;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB900;
+}
+
+
