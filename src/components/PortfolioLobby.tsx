@@ -56,6 +56,8 @@ interface PortfolioLobbyProps {
   onReturnToTitle: () => void;
 }
 
+const MAP_SELECTOR_IMAGE = 'https://images.pexels.com/photos/27152199/pexels-photo-27152199.jpeg?cs=srgb&dl=pexels-ahmet-ciftci-1413580052-27152199.jpg&fm=jpg';
+
 export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
   profile,
   projects,
@@ -191,24 +193,10 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                 </motion.div>
               )}
             </AnimatePresence>
-            {!isCharacterInspecting && (
-              <motion.div
-                animate={{ y: [0, -4, 0], opacity: [0.85, 1, 0.85] }}
-                transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-                className="bg-black/85 backdrop-blur-md border border-[#FFB900] px-3 sm:px-4 py-1.5 text-center shadow-[0_0_20px_rgba(255,185,0,0.35)] transform group-hover:scale-105 transition-transform"
-              >
-                <div className="flex items-center justify-center space-x-1.5 font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold tracking-widest uppercase">
-                  <Crosshair className="w-3.5 h-3.5 animate-pulse text-[#FFB900]" />
-                  <span>TAP OPERATIVE FOR CHARACTERISTICS</span>
-                </div>
-                <div className="text-[9px] font-mono-tech text-white/90 mt-0.5">
-                  Sai Prasanth &bull; Backend &amp; AI Engineer
-                </div>
-              </motion.div>
-            )}
           </div>
         </div>
       </div>
+
 
       {/* 3. CENTERED SCI-FI POPUP: OPERATIVE CHARACTERISTICS DOSSIER OVERLAY */}
       <AnimatePresence>
@@ -250,16 +238,16 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                   </div>
                   <div className="font-display font-bold text-xs sm:text-sm text-[#FFB900] tracking-wider uppercase flex items-center gap-1.5">
                     <Terminal className="w-3.5 h-3.5" />
-                    <span>Backend &amp; AI Engineer</span>
+                    <span>Backend & AI Engineer</span>
                   </div>
                   <div className="flex items-center space-x-1.5 text-xs text-[#A6A6A0] font-mono-tech pt-0.5">
                     <MapPin className="w-3.5 h-3.5 text-[#FFB900] flex-shrink-0" />
-                    <span className="text-[#F5F5F0]">Stafford, TX (Texas, US) // Remote &amp; Hybrid</span>
+                    <span className="text-[#F5F5F0]">Stafford, TX (Texas, US) // Remote & Hybrid</span>
                   </div>
                 </div>
                 <div className="bg-[#151A20] p-3 border-l-2 border-l-[#FFB900]">
                   <span className="text-[9px] font-mono-tech text-[#FFB900] uppercase font-bold block mb-1">
-                    PRIMARY DIRECTIVE &amp; HEADLINE
+                    PRIMARY DIRECTIVE & HEADLINE
                   </span>
                   <p className="text-xs font-mono-tech text-white leading-relaxed font-semibold">
                     Production LLM agents, asynchronous Python services (FastAPI/AsyncIO), distributed RAG pipelines, and safety-critical evaluation tooling.
@@ -290,7 +278,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                     </div>
                     <div>
                       <div className="flex justify-between text-white mb-0.5">
-                        <span>Safety-Critical Eval &amp; Guardrails</span>
+                        <span>Safety-Critical Eval & Guardrails</span>
                         <span className="text-[#FFB900] font-bold">95% [MASTER]</span>
                       </div>
                       <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
@@ -299,7 +287,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                     </div>
                     <div>
                       <div className="flex justify-between text-white mb-0.5">
-                        <span>Sub-50ms Vector RAG &amp; Retrieval</span>
+                        <span>Sub-50ms Vector RAG & Retrieval</span>
                         <span className="text-[#FFB900] font-bold">96% [MASTER]</span>
                       </div>
                       <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
@@ -338,7 +326,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                     className="w-full pubg-start-btn py-2 text-center font-display font-black text-xs text-[#080B0D] uppercase tracking-wider shadow-md hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
                   >
                     <Gamepad2 className="w-4 h-4" />
-                    <span>VIEW HOBBIES &amp; PASSIONS</span>
+                    <span>VIEW HOBBIES & PASSIONS</span>
                   </button>
                 </div>
               </div>
@@ -346,6 +334,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           </div>
         )}
       </AnimatePresence>
+
 
       {/* 4. TOP HUD BAR (Player Profile, Currencies, Conqueror Pass, Contact CTA) */}
       <div className="absolute top-0 inset-x-0 p-2 sm:p-4 md:p-5 flex items-start justify-between z-20 pointer-events-auto">
@@ -374,8 +363,8 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               </div>
               <div className="text-[9px] sm:text-[10px] font-mono-tech text-[#FFB900] flex items-center gap-1 sm:gap-1.5">
                 <span>{profile.rank}</span>
-                <span className="text-white/40 hidden sm:inline">&bull;</span>
-                <span className="text-[#34D399] font-bold hidden sm:inline">&#9679; {profile.serverPing}</span>
+                <span className="text-white/40 hidden sm:inline">•</span>
+                <span className="text-[#34D399] font-bold hidden sm:inline">● {profile.serverPing}</span>
               </div>
             </div>
           </div>
@@ -391,7 +380,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           </div>
           <div className="flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-2 sm:px-2.5 py-1 border border-white/15">
             <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-xs bg-[#4FC3F7] text-[#080B0D] font-black text-[8px] sm:text-[9px] flex items-center justify-center font-display">
-              &#9733;
+              ★
             </div>
             <div className="font-mono-tech text-[11px] sm:text-xs text-white font-bold">
               {profile.currencies.uc}
@@ -418,124 +407,8 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </div>
       </div>
 
-      {/* 5. LEFT-SIDE NAVIGATION PANELS (Desktop only) */}
-      <div className="hidden lg:flex absolute left-4 lg:left-6 top-20 sm:top-24 z-20 flex-col space-y-2 sm:space-y-2.5 w-44 sm:w-52 pointer-events-auto">
-        <button
-          id="hud-nav-projects"
-          onClick={() => handleOpenTab('projects')}
-          onMouseEnter={() => sound.playHover()}
-          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-l-4 border-l-[#FFB900]"
-        >
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
-              <Layers className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors flex items-center gap-1.5">
-                <span>PROJECTS</span>
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-              </div>
-              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
-                GitHub Repositories
-              </div>
-            </div>
-          </div>
-          <span className="bg-red-600 text-white font-mono-tech font-bold text-[9px] px-1.5 py-0.2">
-            CODE
-          </span>
-        </button>
-        <button
-          id="hud-nav-hobbies"
-          onClick={() => handleOpenTab('hobbies')}
-          onMouseEnter={() => sound.playHover()}
-          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-l-4 border-l-[#FFB900]"
-        >
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
-              <Gamepad2 className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
-                HOBBIES
-              </div>
-              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
-                Gaming &amp; Passions
-              </div>
-            </div>
-          </div>
-          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
-        </button>
-        <button
-          id="hud-nav-skills"
-          onClick={() => handleOpenTab('skills')}
-          onMouseEnter={() => sound.playHover()}
-          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-l-4 border-l-[#FFB900]"
-        >
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
-              <Cpu className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
-                SKILLS
-              </div>
-              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
-                Tech &amp; LLM Stacks
-              </div>
-            </div>
-          </div>
-          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
-        </button>
-        <button
-          id="hud-nav-experience"
-          onClick={() => handleOpenTab('experience')}
-          onMouseEnter={() => sound.playHover()}
-          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-l-4 border-l-[#FFB900]"
-        >
-          <div className="flex items-center space-x-2.5">
-            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
-              <Award className="w-4 h-4" />
-            </div>
-            <div>
-              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
-                EXPERIENCE
-              </div>
-              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
-                Timeline &amp; Resume
-              </div>
-            </div>
-          </div>
-          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
-        </button>
-      </div>
-
-      {/* 6. RIGHT-SIDE SOCIAL RELAYS & SPOTLIGHT (Desktop only) */}
-      <div className="hidden lg:flex absolute right-4 md:right-6 top-20 sm:top-24 z-20 flex-col space-y-3 w-48 sm:w-56 pointer-events-auto">
-        <div className="hud-panel p-3 border-r-4 border-r-[#FFB900]">
-          <div className="font-mono-tech text-[10px] text-[#FFB900] uppercase font-bold tracking-widest mb-2 flex items-center justify-between">
-            <span>DIRECT RELAYS</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" />
-          </div>
-          <div className="grid grid-cols-4 gap-1.5">
-            {socials.slice(0, 4).map((soc, idx) => (
-              <a
-                key={idx}
-                href={soc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={soc.name}
-                onClick={() => sound.playClick()}
-                className="flex items-center justify-center p-2 bg-[#1A222B] hover:bg-[#FFB900] text-[#A6A6A0] hover:text-[#080B0D] border border-white/10 transition-colors"
-              >
-                {soc.name === 'GitHub' && <Github className="w-4 h-4" />}
-                {soc.name === 'Direct Email' && <Mail className="w-4 h-4" />}
-                {soc.name === 'Live Portfolio' && <Globe className="w-4 h-4" />}
-                {soc.name === 'LinkedIn' && <Linkedin className="w-4 h-4" />}
-                {soc.name === 'Comm Channel' && <Radio className="w-4 h-4" />}
-              </a>
-            ))}
-          </div>
-        </div>
+      {/* 5. RIGHT-SIDE PANEL: FEATURED REPOSITORY SPOTLIGHT + NAVIGATION (Desktop only) */}
+      <div className="hidden lg:flex absolute right-4 md:right-6 top-20 sm:top-24 z-20 flex-col space-y-2 sm:space-y-2.5 w-48 sm:w-56 pointer-events-auto">
         {featuredProject && (
           <div
             onClick={() => {
@@ -564,7 +437,95 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
             </div>
           </div>
         )}
+        <button
+          id="hud-nav-projects"
+          onClick={() => handleOpenTab('projects')}
+          onMouseEnter={() => sound.playHover()}
+          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-r-4 border-r-[#FFB900]"
+        >
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
+              <Layers className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors flex items-center gap-1.5">
+                <span>PROJECTS</span>
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+              </div>
+              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
+                GitHub Repositories
+              </div>
+            </div>
+          </div>
+          <span className="bg-red-600 text-white font-mono-tech font-bold text-[9px] px-1.5 py-0.2">
+            CODE
+          </span>
+        </button>
+        <button
+          id="hud-nav-hobbies"
+          onClick={() => handleOpenTab('hobbies')}
+          onMouseEnter={() => sound.playHover()}
+          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-r-4 border-r-[#FFB900]"
+        >
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
+              <Gamepad2 className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
+                HOBBIES
+              </div>
+              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
+                Gaming & Passions
+              </div>
+            </div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
+        </button>
+        <button
+          id="hud-nav-skills"
+          onClick={() => handleOpenTab('skills')}
+          onMouseEnter={() => sound.playHover()}
+          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-r-4 border-r-[#FFB900]"
+        >
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
+              <Cpu className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
+                SKILLS
+              </div>
+              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
+                Tech & LLM Stacks
+              </div>
+            </div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
+        </button>
+        <button
+          id="hud-nav-experience"
+          onClick={() => handleOpenTab('experience')}
+          onMouseEnter={() => sound.playHover()}
+          className="group hud-panel flex items-center justify-between p-2.5 sm:p-3 text-left border-r-4 border-r-[#FFB900]"
+        >
+          <div className="flex items-center space-x-2.5">
+            <div className="p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors">
+              <Award className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="font-display font-black text-xs sm:text-sm text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
+                EXPERIENCE
+              </div>
+              <div className="text-[9px] font-mono-tech text-[#A6A6A0]">
+                Timeline & Resume
+              </div>
+            </div>
+          </div>
+          <ChevronRight className="w-4 h-4 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
+        </button>
       </div>
+
 
       {/* 7. LEFT ACTION STACK: MAP SELECTOR CARD, START BUTTON, MICRO-TOOLBAR */}
       <div className="absolute left-3 sm:left-4 md:left-6 bottom-16 sm:bottom-16 z-20 flex flex-col space-y-1.5 sm:space-y-2 pointer-events-auto w-[240px] sm:w-[260px]">
@@ -574,11 +535,13 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           className="relative w-full h-[100px] sm:h-[115px] bg-[#12161a]/95 border border-white/15 overflow-hidden shadow-2xl flex flex-col justify-between p-2.5 sm:p-3 group cursor-pointer hover:border-[#FFB900]/60 transition-all"
         >
           <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#FFB900]" />
-          <div
-            className="absolute inset-0 bg-right bg-no-repeat bg-contain opacity-25 group-hover:opacity-35 transition-opacity pointer-events-none"
-            style={{ backgroundImage: `url(${profile.avatar})` }}
+          <img
+            src={MAP_SELECTOR_IMAGE}
+            alt="Tactical loadout"
+            referrerPolicy="no-referrer"
+            className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-55 transition-opacity pointer-events-none"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/50 pointer-events-none" />
           <div className="relative z-10 flex items-center justify-between text-xs">
             <span className="font-bold text-zinc-300 tracking-wide">Texas</span>
             <span className="flex items-center font-bold text-[#FFB900] text-[11px] tracking-tight group-hover:translate-x-0.5 transition-transform">
@@ -603,7 +566,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
             </div>
           </div>
         </div>
-
         {/* GIANT YELLOW PUBG START BUTTON */}
         <button
           id="pubg-main-start-btn"
@@ -614,7 +576,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-[#080B0D]" />
           <span>START</span>
         </button>
-
         {/* TACTICAL MICRO-TOOLBAR */}
         <div className="flex items-center justify-between bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10 text-xs text-zinc-300">
           <div className="flex items-center gap-3">
@@ -640,6 +601,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           </button>
         </div>
       </div>
+
 
       {/* 8. BOTTOM HUD STRIP: LOCATION, RELAYS PILL ROW, TITLE RETURN */}
       <div className="absolute bottom-0 inset-x-0 h-11 sm:h-12 bg-black/90 backdrop-blur-md border-t border-[#3A3F45] px-2 sm:px-6 flex items-center justify-between z-20 pointer-events-auto">
