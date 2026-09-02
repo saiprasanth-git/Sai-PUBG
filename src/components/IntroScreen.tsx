@@ -141,7 +141,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
             className="flex items-center space-x-3 bg-[#FFB900]/10 border border-[#FFB900] px-6 py-3.5 cursor-pointer hover:bg-[#FFB900]/20 transition-all shadow-[0_0_20px_rgba(255,185,0,0.3)]"
           >
             <div className="w-2.5 h-2.5 bg-[#FFB900] rounded-sm animate-pulse" />
-            <span className="font-display font-bold text-sm md:text-base tracking-[0.25em] text-[#FFB900] uppercase">
+            <span className="font-display font-bold text-sm md:text-base tracking-[0.15em] text-[#FFB900] uppercase">
               PRESS ANY KEY OR TAP TO ENTER
             </span>
           </motion.div>
