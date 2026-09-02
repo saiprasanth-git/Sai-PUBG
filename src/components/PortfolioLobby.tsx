@@ -36,6 +36,7 @@ import {
   Globe,
   FileText,
   Compass,
+  Phone,
   X
 } from 'lucide-react';
 import { HobbiesModal } from './modals/HobbiesModal';
@@ -56,7 +57,7 @@ interface PortfolioLobbyProps {
   onReturnToTitle: () => void;
 }
 
-const MAP_SELECTOR_IMAGE = 'https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=1000&auto=format&fit=crop'; // src/assets/images/pubg_weapon_arcade.jpg - high-contrast dark military rifle backdrop for mapCard tactical gradient overlay
+const MAP_SELECTOR_IMAGE = 'https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=1000&auto=format&fit=crop';
 
 export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
   profile,
@@ -75,8 +76,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
     volume: sound.getVolume()
   });
   const [micActive, setMicActive] = useState(true);
-  const [isCharacterInspecting, setIsCharacterInspecting] = useState(false);
-  const [isCharacterHovered, setIsCharacterHovered] = useState(false);
   const [copiedEmailToast, setCopiedEmailToast] = useState(false);
 
   useEffect(() => {
@@ -120,11 +119,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
     setActiveTab('experience');
   };
 
-  const handleTouchCharacter = () => {
-    sound.playClick();
-    setIsCharacterInspecting((prev) => !prev);
-  };
-
   const handleCopyEmail = (e: React.MouseEvent) => {
     e.stopPropagation();
     navigator.clipboard.writeText('prasanthgrandhisiri@gmail.com');
@@ -153,188 +147,17 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         <div className="pubg-scanlines absolute inset-0 opacity-15" />
       </div>
 
-      {/* 2. INTERACTIVE OPERATIVE HOTSPOT IN CENTER */}
+      {/* 2. NON-INTERACTIVE OPERATIVE VISUAL IN CENTER (no hover, no click, purely decorative) */}
       <div
         className="absolute inset-x-0 bottom-[14%] sm:bottom-[10%] top-[10%] sm:top-[12%] flex justify-center items-center z-15 pointer-events-none"
       >
         <div className="relative w-full max-w-2xl h-full flex justify-center items-center">
           <div
             id="operative-character-hitbox"
-            onClick={handleTouchCharacter}
-            onMouseEnter={() => {
-              setIsCharacterHovered(true);
-              sound.playHover();
-            }}
-            onMouseLeave={() => setIsCharacterHovered(false)}
-            className="pointer-events-auto cursor-pointer relative w-64 sm:w-80 md:w-96 h-[88%] rounded-2xl flex flex-col items-center justify-end pb-8 group"
-          >
-            <AnimatePresence>
-              {isCharacterHovered && !isCharacterInspecting && (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  className="absolute inset-0 border border-[#FFB900]/40 rounded-xl bg-[#FFB900]/5 backdrop-blur-[1px] flex flex-col justify-between p-3 pointer-events-none"
-                >
-                  <div className="flex items-center justify-between font-mono-tech text-[10px] text-[#FFB900]">
-                    <div className="flex items-center gap-1.5 font-bold">
-                      <Target className="w-3.5 h-3.5 animate-spin" />
-                      <span>TARGET LOCKED: SAI PRASANTH</span>
-                    </div>
-                    <span>LV.99 // CONQUEROR</span>
-                  </div>
-                  <div className="flex justify-center items-center opacity-60">
-                    <Crosshair className="w-12 h-12 text-[#FFB900] animate-pulse" />
-                  </div>
-                  <div className="flex items-center justify-between font-mono-tech text-[9px] text-[#34D399]">
-                    <span>STATUS: READY FOR DEPLOYMENT</span>
-                    <span>STAFFORD, TX</span>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+            className="relative w-64 sm:w-80 md:w-96 h-[88%] rounded-2xl flex flex-col items-center justify-end pb-8"
+          />
         </div>
       </div>
-
-
-      {/* 3. CENTERED SCI-FI POPUP: OPERATIVE CHARACTERISTICS DOSSIER OVERLAY */}
-      <AnimatePresence>
-        {isCharacterInspecting && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md pointer-events-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.92, y: 15 }}
-              transition={{ duration: 0.22, ease: 'easeOut' }}
-              className="relative w-full max-w-lg max-h-[90vh] flex flex-col bg-[#0E1216] border-2 border-[#FFB900] p-4 sm:p-6 shadow-[0_0_50px_rgba(0,0,0,0.95)] overflow-hidden text-left"
-            >
-              <div className="flex items-center justify-between border-b border-[#3A3F45] pb-3 mb-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2.5 h-2.5 bg-[#FFB900] animate-pulse" />
-                  <span className="font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold tracking-widest uppercase">
-                    OPERATIVE CHARACTERISTICS // CLASSIFIED
-                  </span>
-                </div>
-                <button
-                  onClick={() => {
-                    sound.playClick();
-                    setIsCharacterInspecting(false);
-                  }}
-                  className="p-1.5 text-[#A6A6A0] hover:text-[#FFB900] hover:bg-white/5 transition-colors"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <div className="overflow-y-auto space-y-4 custom-scrollbar pr-1">
-                <div className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-display font-black text-2xl sm:text-3xl text-white tracking-wide uppercase">
-                      Sai Prasanth
-                    </h3>
-                    <span className="bg-[#FFB900] text-[#080B0D] font-display font-black text-xs px-2 py-0.5">
-                      LV.99 PRO
-                    </span>
-                  </div>
-                  <div className="font-display font-bold text-xs sm:text-sm text-[#FFB900] tracking-wider uppercase flex items-center gap-1.5">
-                    <Terminal className="w-3.5 h-3.5" />
-                    <span>Backend & AI Engineer</span>
-                  </div>
-                  <div className="flex items-center space-x-1.5 text-xs text-[#A6A6A0] font-mono-tech pt-0.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#FFB900] flex-shrink-0" />
-                    <span className="text-[#F5F5F0]">Stafford, TX (Texas, US) // Remote & Hybrid</span>
-                  </div>
-                </div>
-                <div className="bg-[#151A20] p-3 border-l-2 border-l-[#FFB900]">
-                  <span className="text-[9px] font-mono-tech text-[#FFB900] uppercase font-bold block mb-1">
-                    PRIMARY DIRECTIVE & HEADLINE
-                  </span>
-                  <p className="text-xs font-mono-tech text-white leading-relaxed font-semibold">
-                    Production LLM agents, asynchronous Python services (FastAPI/AsyncIO), distributed RAG pipelines, and safety-critical evaluation tooling.
-                  </p>
-                </div>
-                <div className="space-y-2 bg-[#12161C] p-3 border border-white/5">
-                  <span className="text-[10px] font-mono-tech text-[#FFB900] uppercase font-bold block">
-                    OPERATIVE PROFICIENCY RATINGS
-                  </span>
-                  <div className="space-y-2 text-[11px] font-mono-tech">
-                    <div>
-                      <div className="flex justify-between text-white mb-0.5">
-                        <span>Autonomous Multi-Agent Swarms</span>
-                        <span className="text-[#FFB900] font-bold">98% [MASTER]</span>
-                      </div>
-                      <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
-                        <div className="h-full bg-[#FFB900] w-[98%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-white mb-0.5">
-                        <span>Python Microservices (FastAPI/AsyncIO)</span>
-                        <span className="text-[#FFB900] font-bold">98% [MASTER]</span>
-                      </div>
-                      <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
-                        <div className="h-full bg-[#FFB900] w-[98%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-white mb-0.5">
-                        <span>Safety-Critical Eval & Guardrails</span>
-                        <span className="text-[#FFB900] font-bold">95% [MASTER]</span>
-                      </div>
-                      <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
-                        <div className="h-full bg-[#FFB900] w-[95%]" />
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between text-white mb-0.5">
-                        <span>Sub-50ms Vector RAG & Retrieval</span>
-                        <span className="text-[#FFB900] font-bold">96% [MASTER]</span>
-                      </div>
-                      <div className="h-1.5 bg-[#1C232B] w-full overflow-hidden">
-                        <div className="h-full bg-[#FFB900] w-[96%]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-2 pt-2 border-t border-white/10">
-                  <div className="grid grid-cols-2 gap-2">
-                    <a
-                      href="https://github.com/saiprasanth-git"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => sound.playClick()}
-                      className="flex items-center justify-center space-x-1.5 bg-[#1A222B] hover:bg-[#252E38] text-white border border-white/20 hover:border-[#FFB900] py-2 px-2.5 text-xs font-mono-tech font-bold transition-all truncate"
-                    >
-                      <Github className="w-3.5 h-3.5 text-[#FFB900] flex-shrink-0" />
-                      <span className="truncate">saiprasanth-git</span>
-                    </a>
-                    <button
-                      onClick={handleCopyEmail}
-                      className="flex items-center justify-center space-x-1.5 bg-[#1A222B] hover:bg-[#252E38] text-white border border-white/20 hover:border-[#FFB900] py-2 px-2.5 text-xs font-mono-tech font-bold transition-all truncate"
-                      title="Copy email: prasanthgrandhisiri@gmail.com"
-                    >
-                      {copiedEmailToast ? <Check className="w-3.5 h-3.5 text-[#34D399]" /> : <Mail className="w-3.5 h-3.5 text-[#FFB900] flex-shrink-0" />}
-                      <span className="truncate">{copiedEmailToast ? 'COPIED!' : 'EMAIL OPERATIVE'}</span>
-                    </button>
-                  </div>
-                  <button
-                    onClick={() => {
-                      sound.playModalOpen();
-                      setIsCharacterInspecting(false);
-                      setActiveTab('hobbies');
-                    }}
-                    className="w-full pubg-start-btn py-2 text-center font-display font-black text-xs text-[#080B0D] uppercase tracking-wider shadow-md hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
-                  >
-                    <Gamepad2 className="w-4 h-4" />
-                    <span>VIEW HOBBIES & PASSIONS</span>
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
 
       {/* 4. TOP HUD BAR (Player Profile, Currencies, Conqueror Pass, Contact CTA) */}
       <div className="absolute top-0 inset-x-0 p-2 sm:p-4 md:p-5 flex items-start justify-between z-20 pointer-events-auto">
@@ -526,7 +349,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </button>
       </div>
 
-
       {/* 7. LEFT ACTION STACK: MAP SELECTOR CARD, START BUTTON, MICRO-TOOLBAR */}
       <div className="absolute left-3 sm:left-4 md:left-6 bottom-16 sm:bottom-16 z-20 flex flex-col space-y-1.5 sm:space-y-2 pointer-events-auto w-[240px] sm:w-[260px]">
         {/* MAP SELECTOR HUD CARD (ArcadeModeCard) */}
@@ -602,7 +424,6 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </div>
       </div>
 
-
       {/* 8. BOTTOM HUD STRIP: LOCATION, RELAYS PILL ROW, TITLE RETURN */}
       <div className="absolute bottom-0 inset-x-0 h-11 sm:h-12 bg-black/90 backdrop-blur-md border-t border-[#3A3F45] px-2 sm:px-6 flex items-center justify-between z-20 pointer-events-auto">
         <div className="hidden sm:flex items-center space-x-2 text-[10px] font-mono-tech text-[#A6A6A0]">
@@ -611,26 +432,34 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           <span className="text-white font-bold">{profile.location}</span>
         </div>
         <div className="flex items-center space-x-1 sm:space-x-2 overflow-x-auto py-1 flex-1 min-w-0 justify-center">
-          {socials.map((soc, idx) => {
-            let Icon = Radio;
-            if (soc.name === 'GitHub') Icon = Github;
-            if (soc.name === 'Direct Email') Icon = Mail;
-            if (soc.name === 'Live Portfolio') Icon = Globe;
-            if (soc.name === 'LinkedIn') Icon = Linkedin;
-            return (
-              <a
-                key={idx}
-                href={soc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => sound.playClick()}
-                className="flex items-center gap-1 sm:gap-1.5 bg-white/5 hover:bg-[#FFB900]/20 hover:border-[#FFB900]/50 border border-white/10 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] hover:text-white transition-all uppercase whitespace-nowrap"
-              >
-                <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFB900]" />
-                <span className="hidden md:inline">{soc.name}</span>
-              </a>
-            );
-          })}
+          {socials
+            .filter((soc) => soc.name !== 'LinkedIn' && soc.name !== 'Live Portfolio')
+            .map((soc, idx) => {
+              let Icon = Radio;
+              if (soc.name === 'GitHub') Icon = Github;
+              if (soc.name === 'Direct Email') Icon = Mail;
+              return (
+                <a
+                  key={idx}
+                  href={soc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => sound.playClick()}
+                  className="flex items-center gap-1 sm:gap-1.5 bg-white/5 hover:bg-[#FFB900]/20 hover:border-[#FFB900]/50 border border-white/10 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] hover:text-white transition-all uppercase whitespace-nowrap"
+                >
+                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFB900]" />
+                  <span className="hidden md:inline">{soc.name}</span>
+                </a>
+              );
+            })}
+          <a
+            href="tel:+10000000000"
+            onClick={() => sound.playClick()}
+            className="flex items-center gap-1 sm:gap-1.5 bg-white/5 hover:bg-[#FFB900]/20 hover:border-[#FFB900]/50 border border-white/10 px-2 sm:px-2.5 py-1 text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] hover:text-white transition-all uppercase whitespace-nowrap"
+          >
+            <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFB900]" />
+            <span className="hidden md:inline">Phone</span>
+          </a>
         </div>
         <button
           onClick={() => {
