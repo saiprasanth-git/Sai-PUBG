@@ -31,8 +31,16 @@
   font-family: 'Bebas Neue', 'Oswald', Impact, sans-serif;
 }
 
-.font-mono-tech {
-  font-family: 'JetBrains Mono', monospace;
+.font-condensed {
+  font-family: 'Roboto Condensed', 'Oswald', -apple-system, sans-serif;
+}
+
+.hud-text-shadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9), 0 0 4px rgba(0, 0, 0, 0.7);
+}
+
+.hud-text-shadow-sm {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.85);
 }
 
 /* Distressed / Cinematic Golden Typography Styles for Stage 1 */
