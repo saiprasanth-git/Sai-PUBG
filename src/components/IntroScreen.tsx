@@ -22,7 +22,6 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
       setSoundState(state);
     });
   }, []);
-
   const handleEnter = () => {
     if (isTransitioning) return;
     setIsTransitioning(true);
@@ -35,11 +34,9 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Ignore modifier keys alone if desired, or trigger immediately
       if (['Control', 'Shift', 'Alt', 'Meta'].includes(e.key)) return;
       handleEnter();
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isTransitioning]);
@@ -67,7 +64,6 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-left md:object-center transform scale-105 transition-transform duration-1000 ease-out"
         />
-        {/* Dark Vignette & Gradient Overlays for High-Contrast Text Legibility */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#080B0D]/50 to-[#080B0D]/95 hidden md:block" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#080B0D] via-[#080B0D]/60 to-[#080B0D]/40 md:hidden" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.85)_100%)] pointer-events-none" />
@@ -82,7 +78,6 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
             PUBG PORTFOLIO PROTOCOL // 2026.4
           </span>
         </div>
-
         <div className="flex items-center space-x-3">
           <button
             id="sound-toggle-title"
@@ -134,14 +129,14 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
             <span className="text-[#FFB900]">{profile.rank}</span>
           </div>
 
-          {/* Pulsing "Press Any Key" Interactive Indicator */}
+          {/* Pulsing "Press Any Key" Interactive Indicator (reduced size) */}
           <motion.div
             animate={{ scale: [1, 1.03, 1], opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-            className="flex items-center space-x-3 bg-[#FFB900]/10 border border-[#FFB900] px-6 py-3.5 cursor-pointer hover:bg-[#FFB900]/20 transition-all shadow-[0_0_20px_rgba(255,185,0,0.3)]"
+            className="flex items-center space-x-2 bg-[#FFB900]/10 border border-[#FFB900] px-4 py-2 cursor-pointer hover:bg-[#FFB900]/20 transition-all shadow-[0_0_20px_rgba(255,185,0,0.3)]"
           >
-            <div className="w-2.5 h-2.5 bg-[#FFB900] rounded-sm animate-pulse" />
-            <span className="font-display font-bold text-sm md:text-base tracking-[0.15em] text-[#FFB900] uppercase">
+            <div className="w-1.5 h-1.5 bg-[#FFB900] rounded-sm animate-pulse" />
+            <span className="font-display font-bold text-[10px] md:text-xs tracking-[0.15em] text-[#FFB900] uppercase">
               PRESS ANY KEY OR TAP TO ENTER
             </span>
           </motion.div>
