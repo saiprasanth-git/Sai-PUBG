@@ -18,17 +18,17 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
   });
 
   useEffect(() => {
-    return sound.subscribe((state) => {
-      setSoundState(state);
+    return soun
+      setSoundS
     });
   }, []);
-  const handleEnter = () => {
+  const handleE
     if (isTransitioning) return;
-    setIsTransitioning(true);
+    setIsTransi
     sound.playMatchStart();
     sound.playBgm();
     setTimeout(() => {
-      onEnterLobby();
+      onEnterLo
     }, 700);
   };
 
@@ -41,7 +41,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isTransitioning]);
 
-  const toggleSound = (e: React.MouseEvent) => {
+  const toggleS
     e.stopPropagation();
     const muted = sound.toggleMute();
     if (!muted) {
@@ -103,23 +103,14 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
             <span className="inline-block transform skew-x-[6deg]">{profile.taglineTitle}</span>
           </div>
 
-          {/* Huge Distressed Golden Title */}
-          <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tight uppercase pubg-distressed-title text-right mb-4 filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
-            {profile.mainTitle}
-          </h1>
-
-          {/* Golden Separator Accent */}
+                    {/* Golden Separator Accent */}
           <div className="w-full flex items-center justify-end space-x-2 my-2">
             <div className="h-[2px] w-24 bg-[#FFB900]" />
             <div className="h-[4px] w-4 bg-[#FFB900]" />
             <div className="h-[2px] w-8 bg-[#FFB900]/40" />
           </div>
 
-          {/* Subtitle & Specs */}
-          <p className="font-mono-tech text-xs sm:text-sm md:text-base text-[#F5F5F0] tracking-wider uppercase font-semibold leading-relaxed max-w-lg mb-8 text-right opacity-90 drop-shadow-md">
-            {profile.subtitle}
-          </p>
-
+                    
           {/* Server Info Pill */}
           <div className="flex items-center space-x-3 bg-black/75 backdrop-blur-md px-4 py-2 border border-white/10 mb-10 text-xs font-mono-tech text-[#A6A6A0]">
             <span className="text-[#34D399]">● {profile.serverPing}</span>
