@@ -84,11 +84,11 @@ export const PROFILE_DATA: ProfileInfo = {
   callsign: 'OPERATIVE_SAI',
   taglineTitle: 'BACKEND & AI ENGINEER',
   mainTitle: 'SAI PRASANTH',
-  subtitle: 'BACKEND & AI ENGINEER • PRODUCTION LLM AGENTS • PYTHON SERVICES & SAFETY-CRITICAL TOOLING',
+  subtitle: 'BACKEND & AI ENGINEER • PRODUCTION LLM AGENTS • PYTHON SERVICES • CLOUD SERVICES',
   level: 99,
-  rank: 'CONQUEROR // BACKEND & AI LEAD',
+  rank: 'CONQUEROR // BACKEND & AI',
   status: 'AVAILABLE FOR HIGH-IMPACT ROLES',
-  location: 'Stafford, TX (Texas, US) // Remote',
+  location: 'Stafford, TX (Texas, US)',
   coordinates: '29.6161° N, 95.5577° W',
   serverPing: '16ms',
   serverRegion: 'US-CENTRAL // TEXAS-SEC-01',
@@ -97,9 +97,9 @@ export const PROFILE_DATA: ProfileInfo = {
   vehicleImage: pubg_uaz_vehicle,
   titleBgImage: pubg_title_scene,
   lobbyBgImage: pubg_lobby_scene,
-  shortBio: 'Backend & AI Engineer specialized in production LLM agents, high-throughput Python microservices, and safety-critical evaluation tooling.',
+  shortBio: 'Backend & AI Engineer specialized in production LLM agents, high-throughput Python microservices',
   bio: 'I am a Backend & AI Engineer based in Stafford, Texas. I architect production-grade LLM autonomous agents, scalable Python microservices, distributed streaming backends, and safety-critical verification pipelines. My focus centers on reliable agent orchestration, sub-millisecond retrieval architectures, and deterministic test harnesses for non-deterministic AI systems.',
-  yearsOfExperience: '5+ Years',
+  yearsOfExperience: '3+ Years',
   careerGoals: 'Building resilient autonomous agent swarms, sub-50ms distributed RAG engines, and verifiable safety-critical AI evaluation infrastructure.',
   personalInterests: [
     'PUBG Battlegrounds & Tactical Strategy',
@@ -295,11 +295,10 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
     id: 'exp-1',
-    company: 'Enterprise AI & Backend Systems',
+    company: 'Crusade Tech',
     role: 'Staff Backend & AI Engineer',
-    dates: '2023 – PRESENT',
-    location: 'Stafford, TX (Remote & Hybrid)',
-    type: 'Lead',
+    dates: '2024 – PRESENT',
+    location: 'Stafford, TX (Remote)',
     description: 'Leading production LLM agent architectures, high-performance Python microservices, and safety-critical verification infrastructure across distributed cloud services.',
     responsibilities: [
       'Architecting multi-agent orchestration engines with strict tool verification and sandboxed execution',
@@ -311,34 +310,13 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
       'Engineered multi-agent framework processing 1M+ mission-critical workflows with 99.4% success rate',
       'Reduced p95 RAG retrieval latency to under 45ms across 10M+ indexed vector chunks'
     ],
-    link: 'https://github.com/saiprasanth-git'
   },
   {
     id: 'exp-2',
-    company: 'Distributed Cloud Labs',
-    role: 'Senior Python & Systems Engineer',
-    dates: '2021 – 2023',
-    location: 'Texas, US',
-    type: 'Full-time',
-    description: 'Engineered high-throughput backend APIs, asynchronous event-driven pipelines, and distributed task queues handling millions of daily events.',
-    responsibilities: [
-      'Designed scalable REST and gRPC microservices with Celery, Redis, and PostgreSQL',
-      'Implemented semantic caching layers reducing database and third-party API load by 40%',
-      'Authored automated test suites with over 95% code coverage and strict CI/CD gates'
-    ],
-    technologies: ['Python', 'FastAPI', 'Celery', 'Redis', 'PostgreSQL', 'Docker', 'Kubernetes', 'gRPC'],
-    achievements: [
-      'Scaled API throughput to 25,000 req/sec while keeping p99 response times under 15ms',
-      'Maintained 99.99% service availability across multi-region deployments'
-    ],
-    link: 'https://github.com/saiprasanth-git'
-  },
-  {
-    id: 'exp-3',
-    company: 'Software Solutions & Tooling Group',
+    company: 'Onspec',
     role: 'Backend Software Engineer',
-    dates: '2019 – 2021',
-    location: 'Texas, US',
+    dates: '2020 – 2021',
+    location: 'India, Hyd',
     type: 'Full-time',
     description: 'Built data processing pipelines, backend microservices, and automated testing tools for cloud application deployments.',
     responsibilities: [
@@ -351,7 +329,6 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
       'Reduced data ingestion processing times by 50% via parallel AsyncIO workers',
       'Automated deployment pipelines cutting release cycle turnaround time in half'
     ],
-    link: 'https://github.com/saiprasanth-git'
   }
 ];
 
