@@ -56,7 +56,7 @@ interface PortfolioLobbyProps {
   onReturnToTitle: () => void;
 }
 
-const MAP_SELECTOR_IMAGE = 'https://images.pexels.com/photos/27152199/pexels-photo-27152199.jpeg?cs=srgb&dl=pexels-ahmet-ciftci-1413580052-27152199.jpg&fm=jpg';
+const MAP_SELECTOR_IMAGE = 'https://images.unsplash.com/photo-1595590424283-b8f17842773f?q=80&w=1000&auto=format&fit=crop'; // src/assets/images/pubg_weapon_arcade.jpg - high-contrast dark military rifle backdrop for mapCard tactical gradient overlay
 
 export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
   profile,
