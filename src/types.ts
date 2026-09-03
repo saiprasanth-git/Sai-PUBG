@@ -117,5 +117,5 @@ export interface HobbyItem {
   highlight: string;
 }
 
-export type ActiveHudTab = 'none' | 'hobbies' | 'projects' | 'experience' | 'skills' | 'contact' | 'socials' | 'about';
+export type ActiveHudTab = 'none' | 'profile_dossier' | 'hobbies' | 'projects' | 'experience' | 'skills' | 'contact' | 'socials' | 'about';
 

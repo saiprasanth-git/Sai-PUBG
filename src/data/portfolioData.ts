@@ -88,7 +88,7 @@ export const PROFILE_DATA: ProfileInfo = {
   level: 99,
   rank: 'CONQUEROR // BACKEND & AI',
   status: 'AVAILABLE FOR HIGH-IMPACT ROLES',
-  location: 'Stafford, TX (Texas, US)',
+  location: 'North America',
   coordinates: '29.6161° N, 95.5577° W',
   serverPing: '16ms',
   serverRegion: 'US-CENTRAL // TEXAS-SEC-01',
@@ -383,7 +383,96 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'GitHub', handle: 'github.com/saiprasanth-git', url: 'https://github.com/saiprasanth-git', icon: 'Github', highlight: true },
   { name: 'Direct Email', handle: 'prasanthgrandhisiri@gmail.com', url: 'mailto:prasanthgrandhisiri@gmail.com', icon: 'Mail', highlight: true },
-  { name: 'Live Portfolio', handle: 'sai-prasanth.pplx.app', url: 'https://sai-prasanth.pplx.app/#/', icon: 'ExternalLink', highlight: true },
-  { name: 'LinkedIn', handle: 'linkedin.com/in/saiprasanth', url: 'https://linkedin.com', icon: 'Linkedin', highlight: true },
-  { name: 'Comm Channel', handle: 'Stafford, TX // Dispatch', url: 'mailto:prasanthgrandhisiri@gmail.com', icon: 'Radio' },
+  { name: 'X (Twitter)', handle: '@saiprasanth', url: 'https://x.com', icon: 'Twitter', highlight: true },
+  { name: 'Instagram', handle: '@saiprasanth', url: 'https://instagram.com', icon: 'Instagram', highlight: true },
+  { name: 'Comm Channel', handle: 'Secure Dispatch Relay', url: 'mailto:prasanthgrandhisiri@gmail.com', icon: 'Radio' },
+];
+
+export interface TacticalWeapon {
+  id: string;
+  name: string;
+  codename: string;
+  category: string;
+  ammo: string;
+  damage: number;
+  fireRate: string;
+  effectiveRange: string;
+  description: string;
+  specialTrait: string;
+}
+
+export interface TacticalVehicle {
+  id: string;
+  name: string;
+  codename: string;
+  category: string;
+  topSpeed: string;
+  armorRating: string;
+  engine: string;
+  description: string;
+  specialTrait: string;
+}
+
+export const TACTICAL_WEAPONS: TacticalWeapon[] = [
+  {
+    id: 'weapon-awm',
+    name: 'AWM',
+    codename: 'ARCTIC WARFARE MAGNUM',
+    category: 'SNIPER RIFLE // CRATE DROP',
+    ammo: '.300 Magnum (High Kinetic Penetration)',
+    damage: 105,
+    fireRate: 'Bolt-Action (Single Precision)',
+    effectiveRange: '1000m (Sub-MOA Accuracy)',
+    description: 'Supreme bolt-action sniper rifle capable of neutralising targets through Level 3 helmets with a single devastating round.',
+    specialTrait: 'Level 3 Helmet One-Shot Capability'
+  },
+  {
+    id: 'weapon-mk14',
+    name: 'MK14 EBR',
+    codename: 'ENHANCED BATTLE RIFLE',
+    category: 'DMR // SELECT FIRE (AUTO/SEMI)',
+    ammo: '7.62mm Match Grade',
+    damage: 61,
+    fireRate: 'High DPS (Semi & Full-Auto Mode)',
+    effectiveRange: '800m (Bipod Prone Stabilization)',
+    description: 'Versatile marksman rifle with toggleable full-auto fire mode and integrated prone bipod for unmatched sustained firepower.',
+    specialTrait: 'Full-Auto DMR & Integrated Bipod Stabilization'
+  },
+  {
+    id: 'weapon-ak49',
+    name: 'AK-49 / AKM TACTICAL',
+    codename: 'HEAVY KINETIC ASSAULT PLATFORM',
+    category: 'ASSAULT RIFLE // RUSSIAN HEAVY',
+    ammo: '7.62mm High Impact',
+    damage: 47,
+    fireRate: '600 RPM (Rapid Close-Quarters Punch)',
+    effectiveRange: '400m (Compensator Equipped)',
+    description: 'Iconic hard-hitting kinetic assault rifle delivering maximum stopping power per bullet in critical close and medium encounters.',
+    specialTrait: 'High Kinetic Stopping Power & Armor Shred'
+  }
+];
+
+export const TACTICAL_VEHICLES: TacticalVehicle[] = [
+  {
+    id: 'vehicle-ferrari',
+    name: 'Ferrari Supercar',
+    codename: 'ROSSO CORSA INTERCEPTOR',
+    category: 'HIGH-VELOCITY EXFIL SUPERCAR',
+    topSpeed: '340 km/h (Turbo Boost)',
+    armorRating: 'Light Aerodynamic Carbon-Fiber',
+    engine: '3.9L Twin-Turbo Mid-Mounted V8',
+    description: 'Ultra-aerodynamic hypercar engineered for rapid zone rotation, high-speed evasive extraction, and instant acceleration.',
+    specialTrait: '0–100 km/h in 2.8s & Extreme Rapid Exfil'
+  },
+  {
+    id: 'vehicle-mafia',
+    name: 'Mafia Syndicate Armored Cruiser',
+    codename: 'VINTAGE 1930S GANGSTER V12',
+    category: 'HEAVY BALLISTIC SYNDICATE SEDAN',
+    topSpeed: '210 km/h (Heavy Torque)',
+    armorRating: 'Reinforced Level 3 Ballistic Plating',
+    engine: 'Custom Supercharged Syndicate V12',
+    description: 'Classic gangster armored cruiser featuring bullet-resistant bodywork, dual exterior running boards for operative drive-bys, and underworld authority.',
+    specialTrait: 'Ballistic Armor Plating & Running-Board Drive-By'
+  }
 ];

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ProfileInfo, DirectiveStat, HobbyItem } from '../../types';
-import { X, Shield, MapPin, Award, Crosshair, Sparkles, Terminal, Zap, Compass, Gamepad2, Laptop, BookOpen, Coffee, Flame } from 'lucide-react';
+import { X, Crosshair, Sparkles, Terminal, Zap, Compass, Gamepad2, Laptop, BookOpen, Flame } from 'lucide-react';
 import { sound } from '../../utils/audio';
 
 interface HobbiesModalProps {
@@ -77,60 +77,6 @@ export const HobbiesModal: React.FC<HobbiesModalProps> = ({
 
         {/* Scrollable Content Body */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 custom-scrollbar">
-          {/* Top Hero Info Card */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 bg-[#181E24] p-4 sm:p-5 border border-white/10">
-            {/* Avatar & Rank */}
-            <div className="flex flex-col items-center text-center space-y-2.5 md:border-r md:border-white/10 md:pr-6">
-              <div className="relative">
-                <img
-                  src={profile.avatar}
-                  alt={profile.name}
-                  referrerPolicy="no-referrer"
-                  className="w-24 h-24 sm:w-28 sm:h-28 object-cover border-2 border-[#FFB900] shadow-md"
-                />
-                <div className="absolute -bottom-2 bg-[#FFB900] text-[#080B0D] font-display font-black text-xs px-2 py-0.5 uppercase tracking-wider">
-                  LV.{profile.level}
-                </div>
-              </div>
-              <div>
-                <h3 className="font-display font-bold text-base sm:text-lg text-white">{profile.name}</h3>
-                <p className="font-mono-tech text-xs text-[#FFB900]">{profile.rank}</p>
-                <div className="flex items-center justify-center space-x-1 text-xs text-[#A6A6A0] mt-1 font-mono-tech">
-                  <MapPin className="w-3.5 h-3.5 text-[#FFB900]" />
-                  <span>{profile.location}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Core Bio & Mission */}
-            <div className="md:col-span-2 space-y-3">
-              <div>
-                <span className="font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold tracking-wider uppercase block mb-1">
-                  OPERATIVE LIFESTYLE & PERSONAL INTERESTS
-                </span>
-                <p className="text-xs sm:text-sm text-[#F5F5F0] leading-relaxed">
-                  Beyond architecting distributed AI services and Python microservices, I maintain a strong discipline in tactical gaming, open-source AI swarm experiments, building high-end custom hardware, and endurance fitness.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-2.5 pt-1">
-                <div className="bg-[#101418] p-2.5 sm:p-3 border border-white/5">
-                  <span className="text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] uppercase block">CURRENT FOCUS</span>
-                  <span className="text-xs font-mono-tech text-[#34D399] font-bold flex items-center gap-1.5 mt-0.5 truncate">
-                    <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-                    Open Source AI & Tactical Gaming
-                  </span>
-                </div>
-                <div className="bg-[#101418] p-2.5 sm:p-3 border border-white/5">
-                  <span className="text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] uppercase block">FAVORITE TITLES</span>
-                  <span className="text-xs font-mono-tech text-[#FFB900] font-bold mt-0.5 truncate block">
-                    PUBG, CS2, Strategy Simulators
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Hobbies Cards Grid */}
           <div className="space-y-3">
             <div className="flex items-center justify-between">

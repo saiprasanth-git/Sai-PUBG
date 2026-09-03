@@ -103,7 +103,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ profile, socials, on
               </div>
 
               {/* GitHub Relay Card */}
-              <div className="bg-[#0F1317] p-3.5 border border-white/10 space-y-2">
+              <div className="bg-[#0F1317] p-3 border border-white/10 space-y-1.5">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-mono-tech text-[#A6A6A0] uppercase">GITHUB PROFILE</span>
                   <MessageSquare className="w-3.5 h-3.5 text-[#FFB900]" />
@@ -115,9 +115,47 @@ export const ContactModal: React.FC<ContactModalProps> = ({ profile, socials, on
                   href="https://github.com/saiprasanth-git"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[11px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"
+                  className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[10px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"
                 >
                   <span>OPEN GITHUB PROFILE ↗</span>
+                </a>
+              </div>
+
+              {/* X (Twitter) Relay Card */}
+              <div className="bg-[#0F1317] p-3 border border-white/10 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono-tech text-[#A6A6A0] uppercase">X / TWITTER ACCOUNT</span>
+                  <span className="font-bold text-xs text-[#FFB900]">𝕏</span>
+                </div>
+                <div className="font-mono-tech text-xs text-white font-bold">
+                  @saiprasanth
+                </div>
+                <a
+                  href="https://x.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[10px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"
+                >
+                  <span>OPEN X (TWITTER) ↗</span>
+                </a>
+              </div>
+
+              {/* Instagram Relay Card */}
+              <div className="bg-[#0F1317] p-3 border border-white/10 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono-tech text-[#A6A6A0] uppercase">INSTAGRAM ACCOUNT</span>
+                  <span className="text-xs text-[#FFB900] font-bold">IG</span>
+                </div>
+                <div className="font-mono-tech text-xs text-white font-bold">
+                  @saiprasanth
+                </div>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[10px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"
+                >
+                  <span>OPEN INSTAGRAM ↗</span>
                 </a>
               </div>
 

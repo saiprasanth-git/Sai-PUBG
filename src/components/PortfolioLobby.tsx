@@ -21,9 +21,11 @@ import {
   Play, 
   Globe,
   UserPlus,
-  Mic
+  Mic,
+  Instagram
 } from 'lucide-react';
 import { ArcadeModeCard } from './ArcadeModeCard';
+import { OperativeDossierModal } from './modals/OperativeDossierModal';
 import { HobbiesModal } from './modals/HobbiesModal';
 import { ProjectsModal } from './modals/ProjectsModal';
 import { ProjectDetailsModal } from './modals/ProjectDetailsModal';
@@ -121,9 +123,9 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
 
       {/* 2. TOP HUD BAR (Player Profile, Currencies, Conqueror Pass, Contact CTA) */}
       <div className="absolute top-0 inset-x-0 p-2 sm:p-4 md:p-5 flex items-start justify-between z-20 pointer-events-auto">
-        {/* Top Left: Player Avatar, Level, Callsign, Rank */}
+        {/* Top Left: Player Avatar, Level, Callsign, Rank (Opens Operative Dossier) */}
         <div
-          onClick={() => handleOpenTab('hobbies')}
+          onClick={() => handleOpenTab('profile_dossier')}
           className="group flex items-center space-x-2 sm:space-x-3 bg-black/80 hover:bg-black/95 backdrop-blur-md p-1.5 sm:p-2 border border-white/20 hover:border-[#FFB900] cursor-pointer transition-all shadow-lg w-fit"
         >
           {/* Avatar with LV badge */}
@@ -155,7 +157,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           </div>
         </div>
 
-        {/* Top Right & Right Side: Currencies + Right-Side Navigation (PROJECTS, HOBBIES, SKILLS, EXPERIENCE) */}
+        {/* Top Right & Right Side: Currencies + Right-Side Navigation (PROJECTS, HOBBIES, SKILLS) */}
         <div className="flex flex-col items-end space-y-2.5 pointer-events-auto">
           {/* Top Bar: Currencies, Conqueror Pass, and Contact Button */}
           <div className="flex items-center space-x-1.5 sm:space-x-2.5">
@@ -204,7 +206,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
 
           {/* RIGHT-HAND SIDE TACTICAL NAVIGATION PANELS */}
           <div className="flex flex-col space-y-1.5 sm:space-y-2 w-44 sm:w-52">
-            {/* 1. PROJECTS (Brought out to right-hand menu) */}
+            {/* 1. PROJECTS */}
             <button
               id="hud-nav-projects"
               onClick={() => handleOpenTab('projects')}
@@ -275,36 +277,13 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               </div>
               <ChevronRight className="w-3.5 h-3.5 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
             </button>
-
-            {/* 4. EXPERIENCE */}
-            <button
-              id="hud-nav-experience"
-              onClick={() => handleOpenTab('experience')}
-              onMouseEnter={() => sound.playHover()}
-              className="group hud-panel flex items-center justify-between p-2 sm:p-2.5 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
-            >
-              <div className="flex items-center space-x-2">
-                <div className="p-1 sm:p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
-                  <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </div>
-                <div>
-                  <div className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
-                    EXPERIENCE
-                  </div>
-                  <div className="text-[8px] sm:text-[9px] font-mono-tech text-[#A6A6A0]">
-                    Timeline & Resume
-                  </div>
-                </div>
-              </div>
-              <ChevronRight className="w-3.5 h-3.5 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
-            </button>
           </div>
         </div>
       </div>
 
       {/* 3. BOTTOM-LEFT TACTICAL LAUNCH HUD: Map Card + START Button + Quick Toolbar */}
       <div className="absolute left-2 sm:left-4 md:left-6 bottom-13 sm:bottom-15 z-20 flex flex-col space-y-2 sm:space-y-2.5 max-w-[240px] sm:max-w-[260px] pointer-events-auto">
-        {/* AUTHENTIC MAP SELECTOR HUD CARD (Stafford) */}
+        {/* AUTHENTIC MAP SELECTOR HUD CARD (Stafford) - Click plays quick sound, doesn't open experience */}
         <ArcadeModeCard
           region="Texas"
           selectModeLabel="Select Mode"
@@ -313,7 +292,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           mapSubtitle="Map: Quick Match"
           playerCount={4}
           weaponImageUrl="/src/assets/images/pubg_weapon_arcade.jpg"
-          onClick={handleStartGame}
+          onClick={() => sound.playClick()}
           className="shadow-2xl"
         />
 
@@ -366,10 +345,10 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
 
       {/* 4. BOTTOM HUD STRIP (Location, Relays / Social Links, Title Return) */}
       <div className="absolute bottom-0 inset-x-0 h-11 sm:h-12 bg-black/90 backdrop-blur-md border-t border-[#3A3F45] px-2 sm:px-6 flex items-center justify-between z-20 pointer-events-auto">
-        {/* Left Server/Location Tag */}
-        <div className="flex items-center space-x-2 text-[10px] sm:text-xs font-mono-tech text-[#A6A6A0]">
-          <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-          <span className="hidden xs:inline">LOCATION:</span>
+        {/* Left Server/Location Tag with Globe */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-xs font-mono-tech text-[#A6A6A0]">
+          <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#34D399]" />
+          <span className="hidden xs:inline text-[#7A838F]">LOCATION:</span>
           <span className="text-white font-bold">{profile.location}</span>
         </div>
 
@@ -378,26 +357,46 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           <span className="text-[9px] sm:text-[10px] font-mono-tech text-[#FFB900] uppercase font-bold tracking-widest hidden sm:inline mr-1">
             RELAYS:
           </span>
-          {socials.map((soc, idx) => (
-            <a
-              key={idx}
-              href={soc.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={soc.name}
-              onClick={() => sound.playClick()}
-              className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
-            >
-              {soc.name === 'GitHub' && <Github className="w-3.5 h-3.5" />}
-              {soc.name === 'Direct Email' && <Mail className="w-3.5 h-3.5" />}
-              {soc.name === 'Live Portfolio' && <Globe className="w-3.5 h-3.5" />}
-              {soc.name === 'LinkedIn' && <Linkedin className="w-3.5 h-3.5" />}
-              {soc.name === 'Comm Channel' && <Radio className="w-3.5 h-3.5" />}
-              <span className="font-condensed font-bold text-[11px] sm:text-xs uppercase tracking-wider hidden md:inline">
-                {soc.name}
-              </span>
-            </a>
-          ))}
+          {socials.map((soc, idx) => {
+            const isCommChannel = soc.name === 'Comm Channel';
+            if (isCommChannel) {
+              return (
+                <button
+                  key={idx}
+                  onClick={() => {
+                    sound.playClick();
+                    handleOpenTab('contact');
+                  }}
+                  title={soc.name}
+                  className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
+                >
+                  <Radio className="w-3.5 h-3.5" />
+                  <span className="font-condensed font-bold text-[11px] sm:text-xs uppercase tracking-wider hidden md:inline">
+                    {soc.name}
+                  </span>
+                </button>
+              );
+            }
+            return (
+              <a
+                key={idx}
+                href={soc.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={soc.name}
+                onClick={() => sound.playClick()}
+                className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
+              >
+                {soc.name === 'GitHub' && <Github className="w-3.5 h-3.5" />}
+                {soc.name === 'Direct Email' && <Mail className="w-3.5 h-3.5" />}
+                {soc.name === 'X (Twitter)' && <span className="font-bold text-xs">𝕏</span>}
+                {soc.name === 'Instagram' && <Instagram className="w-3.5 h-3.5" />}
+                <span className="font-condensed font-bold text-[11px] sm:text-xs uppercase tracking-wider hidden md:inline">
+                  {soc.name}
+                </span>
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Controls: Clean Title Return Button */}
@@ -419,6 +418,14 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
 
       {/* 9. MODAL OVERLAYS */}
       <AnimatePresence>
+        {activeTab === 'profile_dossier' && (
+          <OperativeDossierModal
+            profile={profile}
+            onClose={handleCloseModal}
+            onOpenContact={() => setActiveTab('contact')}
+          />
+        )}
+
         {(activeTab === 'hobbies' || activeTab === 'about') && (
           <HobbiesModal
             profile={profile}
