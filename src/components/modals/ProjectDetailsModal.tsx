@@ -24,10 +24,10 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.96, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.95)] overflow-hidden"
+        className="pubg-modal-card relative w-full max-w-5xl max-h-[92vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.95)] overflow-hidden"
       >
         {/* Header Bar */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
+        <div className="pubg-modal-header flex items-center justify-between px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
           <div className="flex items-center space-x-3">
             <button
               onClick={() => {
@@ -43,7 +43,7 @@ export const ProjectDetailsModal: React.FC<ProjectDetailsModalProps> = ({
               <span className="font-mono-tech text-[10px] text-[#FFB900] uppercase tracking-widest font-bold block">
                 DOSSIER SPECIFICATION // {project.codename}
               </span>
-              <h2 className="font-display font-black text-xl md:text-2xl text-white uppercase truncate max-w-lg">
+              <h2 className="pubg-modal-title font-display font-black text-xl md:text-2xl text-white uppercase truncate max-w-lg">
                 {project.title}
               </h2>
             </div>

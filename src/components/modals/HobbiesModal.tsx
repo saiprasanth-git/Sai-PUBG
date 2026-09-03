@@ -47,10 +47,10 @@ export const HobbiesModal: React.FC<HobbiesModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_50px_rgba(0,0,0,0.95)] overflow-hidden"
+        className="pubg-modal-card relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_50px_rgba(0,0,0,0.95)] overflow-hidden"
       >
         {/* Modal Top Header Bar */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
+        <div className="pubg-modal-header flex items-center justify-between px-4 sm:px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
           <div className="flex items-center space-x-3">
             <div className="p-1.5 bg-[#FFB900] text-[#080B0D]">
               <Gamepad2 className="w-5 h-5" />
@@ -59,7 +59,7 @@ export const HobbiesModal: React.FC<HobbiesModalProps> = ({
               <div className="font-mono-tech text-[10px] text-[#FFB900] tracking-widest uppercase font-bold">
                 OPERATIVE DOSSIER // PERSONAL PROFILE
               </div>
-              <h2 className="font-display font-black text-lg sm:text-2xl text-[#F5F5F0] tracking-wide uppercase">
+              <h2 className="pubg-modal-title font-display font-black text-lg sm:text-2xl text-[#F5F5F0] tracking-wide uppercase">
                 HOBBIES & PASSIONS // {profile.name}
               </h2>
             </div>

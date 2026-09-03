@@ -36,12 +36,12 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
           onClick?.();
         }
       }}
-      className={`group relative w-[250px] sm:w-[265px] h-[110px] sm:h-[118px] select-none cursor-pointer overflow-hidden rounded-[2px] bg-[#17191A] border border-white/10 shadow-[0_6px_20px_rgba(0,0,0,0.7)] transition-all duration-180 ease-out hover:brightness-[1.08] focus:outline-none focus:ring-2 focus:ring-[#F2C62D]/60 ${className}`}
+      className={`arcade-card-landscape group relative w-[200px] sm:w-[225px] md:w-[245px] h-[78px] sm:h-[88px] md:h-[96px] select-none cursor-pointer overflow-hidden rounded-[2px] bg-[#17191A] border border-white/10 shadow-[0_6px_20px_rgba(0,0,0,0.7)] transition-all duration-180 ease-out hover:brightness-[1.08] focus:outline-none focus:ring-2 focus:ring-[#F2C62D]/60 ${className}`}
     >
-      {/* 3-4px Vertical Yellow Accent Strip on Far-Left Edge */}
+      {/* 3px Vertical Yellow Accent Strip on Far-Left Edge */}
       <div 
         id="arcade-card-accent-strip"
-        className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#F2C62D] z-30 shadow-[0_0_8px_rgba(242,198,45,0.4)] group-hover:bg-[#FFD233] transition-colors" 
+        className="absolute left-0 top-0 bottom-0 w-[2.5px] bg-[#F2C62D] z-30 shadow-[0_0_8px_rgba(242,198,45,0.4)] group-hover:bg-[#FFD233] transition-colors" 
       />
 
       {/* Full-Bleed Weapon Background Image */}
@@ -63,14 +63,14 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
       </div>
 
       {/* Card Content Overlay */}
-      <div className="relative z-20 w-full h-full flex flex-col justify-between p-[9px] pl-[12px] font-condensed">
+      <div className="relative z-20 w-full h-full flex flex-col justify-between p-[6px] sm:p-[8px] pl-[10px] font-condensed">
         
         {/* Top Row: Region & Select Mode */}
         <div className="flex items-center justify-between w-full">
           {/* Region Name */}
           <span 
             id="arcade-region-label"
-            className="text-[#F3F1E8] text-[13px] sm:text-[14px] font-semibold tracking-normal hud-text-shadow leading-tight"
+            className="text-[#F3F1E8] text-[11px] sm:text-[12px] md:text-[13px] font-semibold tracking-normal hud-text-shadow leading-tight"
           >
             {region}
           </span>
@@ -78,13 +78,13 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
           {/* Select Mode with Animated Chevrons */}
           <div 
             id="arcade-select-mode-label"
-            className="flex items-center text-[#F2C62D] text-[13px] sm:text-[14px] font-bold tracking-normal hud-text-shadow leading-tight group-hover:text-[#FFD233] transition-colors"
+            className="flex items-center text-[#F2C62D] text-[11px] sm:text-[12px] md:text-[13px] font-bold tracking-normal hud-text-shadow leading-tight group-hover:text-[#FFD233] transition-colors"
           >
             <span>{selectModeLabel}</span>
             <div className="flex items-center ml-0.5 group-hover:translate-x-0.5 transition-transform duration-180">
-              <ChevronRight className="w-3 h-3 -mr-1.5 stroke-[3] text-[#F2C62D]" />
-              <ChevronRight className="w-3 h-3 -mr-1.5 stroke-[3] text-[#F2C62D]" />
-              <ChevronRight className="w-3 h-3 stroke-[3] text-[#F2C62D]" />
+              <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 -mr-1.5 stroke-[3] text-[#F2C62D]" />
+              <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 -mr-1.5 stroke-[3] text-[#F2C62D]" />
+              <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3] text-[#F2C62D]" />
             </div>
           </div>
         </div>
@@ -97,13 +97,13 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
             <div className="flex items-baseline space-x-1 leading-none">
               <h3 
                 id="arcade-mode-title"
-                className="text-[#F3F1E8] text-[20px] sm:text-[22px] font-bold tracking-tight hud-text-shadow m-0 p-0"
+                className="text-[#F3F1E8] text-[16px] sm:text-[18px] md:text-[20px] font-bold tracking-tight hud-text-shadow m-0 p-0"
               >
                 {modeTitle}
               </h3>
               <span 
                 id="arcade-mode-perspective"
-                className="text-[#C8C7BE] text-[12px] sm:text-[13px] font-bold hud-text-shadow"
+                className="text-[#C8C7BE] text-[10px] sm:text-[11px] md:text-[12px] font-bold hud-text-shadow"
               >
                 {perspective}
               </span>
@@ -112,7 +112,7 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
             {/* Map Subtitle */}
             <div 
               id="arcade-map-subtitle"
-              className="text-[#C8C7BE] text-[11px] sm:text-[12px] font-semibold tracking-normal hud-text-shadow mt-0.5"
+              className="text-[#C8C7BE] text-[9px] sm:text-[10px] md:text-[11px] font-semibold tracking-normal hud-text-shadow mt-0.5"
             >
               {mapSubtitle}
             </div>
@@ -121,10 +121,10 @@ export const ArcadeModeCard: React.FC<ArcadeModeCardProps> = ({
           {/* Bottom-Right Squad / Player Count */}
           <div 
             id="arcade-player-count"
-            className="flex items-center space-x-1 mb-0.5 hud-text-shadow"
+            className="flex items-center space-x-0.5 sm:space-x-1 mb-0.5 hud-text-shadow"
           >
-            <Users className="w-3 h-3 text-[#C8C7BE] stroke-[2.2]" />
-            <span className="text-[#F3F1E8] text-[13px] sm:text-[14px] font-semibold leading-none">
+            <Users className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#C8C7BE] stroke-[2.2]" />
+            <span className="text-[#F3F1E8] text-[11px] sm:text-[12px] md:text-[13px] font-semibold leading-none">
               {playerCount}
             </span>
           </div>

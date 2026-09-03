@@ -27,10 +27,10 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({ categories, onClose })
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-5xl max-h-[90vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_50px_rgba(0,0,0,0.95)] overflow-hidden"
+        className="pubg-modal-card relative w-full max-w-5xl max-h-[90vh] flex flex-col bg-[#0F1317] border-2 border-[#FFB900] shadow-[0_0_50px_rgba(0,0,0,0.95)] overflow-hidden"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
+        <div className="pubg-modal-header flex items-center justify-between px-6 py-4 bg-[#151A20] border-b border-[#3A3F45]">
           <div className="flex items-center space-x-3">
             <div className="p-1.5 bg-[#FFB900] text-[#080B0D]">
               <Cpu className="w-5 h-5" />
@@ -39,7 +39,7 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({ categories, onClose })
               <div className="font-mono-tech text-[10px] text-[#FFB900] tracking-widest uppercase font-bold">
                 TACTICAL ARMORY // PROFICIENCY & CALIBER
               </div>
-              <h2 className="font-display font-black text-xl md:text-2xl text-[#F5F5F0] tracking-wide uppercase">
+              <h2 className="pubg-modal-title font-display font-black text-xl md:text-2xl text-[#F5F5F0] tracking-wide uppercase">
                 WEAPONRY & SKILL INVENTORY
               </h2>
             </div>
@@ -56,7 +56,7 @@ export const SkillsModal: React.FC<SkillsModalProps> = ({ categories, onClose })
         </div>
 
         {/* Content Body */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
+        <div className="pubg-modal-body flex-1 overflow-y-auto p-6 space-y-6 custom-scrollbar">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {categories.map((cat, idx) => (
               <div key={idx} className="bg-[#151B21] border border-white/10 p-5 space-y-4">

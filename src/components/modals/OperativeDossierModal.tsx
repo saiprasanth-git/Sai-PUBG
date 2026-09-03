@@ -34,10 +34,10 @@ export const OperativeDossierModal: React.FC<OperativeDossierModalProps> = ({
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.94, y: 15 }}
         transition={{ duration: 0.22, ease: 'easeOut' }}
-        className="relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#0D1115] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.98)] overflow-hidden text-left"
+        className="pubg-modal-card relative w-full max-w-4xl max-h-[92vh] flex flex-col bg-[#0D1115] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.98)] overflow-hidden text-left"
       >
         {/* Top Header Strip */}
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#14191F] border-b border-[#3A3F45]">
+        <div className="pubg-modal-header flex items-center justify-between px-4 sm:px-6 py-3.5 bg-[#14191F] border-b border-[#3A3F45]">
           <div className="flex items-center space-x-2.5">
             <div className="w-3 h-3 bg-[#FFB900] animate-pulse" />
             <span className="font-mono-tech text-[10px] sm:text-xs text-[#FFB900] font-bold tracking-[0.2em] uppercase">
@@ -56,7 +56,7 @@ export const OperativeDossierModal: React.FC<OperativeDossierModalProps> = ({
         </div>
 
         {/* Scrollable Dossier Content */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 custom-scrollbar pr-2">
+        <div className="pubg-modal-body flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 custom-scrollbar pr-2">
           
           {/* 1. OPERATIVE IDENTITY & AVATAR BANNER */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-[#141920] p-4 sm:p-5 border border-white/10 relative overflow-hidden">

@@ -144,4 +144,203 @@
   background: #FFB900;
 }
 
+/* =========================================================================
+   MOBILE LANDSCAPE & COMPACT HUD OPTIMIZATIONS (Authentic PUBG Mobile Layout)
+   Applies only on short viewport heights (height <= 550px, e.g. phones in landscape)
+   and compact mobile screens.
+   Laptop and desktop displays (height >= 600px) remain 100% untouched.
+   ========================================================================= */
+@media (max-height: 550px), (orientation: landscape) and (max-height: 640px) and (max-width: 1024px) {
+  /* Frame */
+  .pubg-lobby-frame {
+    border-width: 2px !important;
+  }
+
+  /* Top HUD Bar */
+  .pubg-top-hud {
+    padding: 0.25rem 0.5rem !important;
+  }
+  .pubg-avatar-box {
+    padding: 0.15rem 0.35rem !important;
+  }
+  .pubg-avatar-img {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+  .pubg-avatar-name {
+    font-size: 0.65rem !important;
+  }
+  .pubg-avatar-rank {
+    font-size: 0.5rem !important;
+  }
+  .pubg-top-currency {
+    padding: 0.1rem 0.35rem !important;
+    font-size: 0.6rem !important;
+  }
+  .pubg-top-pass-btn {
+    padding: 0.1rem 0.4rem !important;
+    font-size: 0.6rem !important;
+  }
+  .pubg-top-contact-btn {
+    padding: 0.1rem 0.4rem !important;
+    font-size: 0.6rem !important;
+  }
+
+  /* Right-hand side Tactical Nav */
+  .pubg-right-nav-container {
+    width: 7.5rem !important;
+    gap: 0.15rem !important;
+  }
+  .pubg-right-nav-btn {
+    padding: 0.15rem 0.35rem !important;
+  }
+  .pubg-right-nav-title {
+    font-size: 0.6rem !important;
+    letter-spacing: 0.04em !important;
+  }
+  .pubg-right-nav-subtitle {
+    display: none !important;
+  }
+  .pubg-right-nav-badge {
+    display: none !important;
+  }
+
+  /* Bottom-Left Launch Hub */
+  .pubg-bottom-launch-hub {
+    bottom: 2rem !important;
+    left: 0.5rem !important;
+    max-width: 140px !important;
+    gap: 0.2rem !important;
+  }
+  .arcade-card-landscape {
+    width: 140px !important;
+    height: 40px !important;
+    padding: 2px 4px 2px 6px !important;
+  }
+  .arcade-card-landscape #arcade-region-label {
+    font-size: 9px !important;
+  }
+  .arcade-card-landscape #arcade-select-mode-label {
+    font-size: 9px !important;
+  }
+  .arcade-card-landscape #arcade-mode-title {
+    font-size: 12px !important;
+  }
+  .arcade-card-landscape #arcade-mode-perspective {
+    font-size: 8px !important;
+  }
+  .arcade-card-landscape #arcade-map-subtitle {
+    display: none !important;
+  }
+  .arcade-card-landscape #arcade-player-count {
+    font-size: 9px !important;
+  }
+  .pubg-start-btn-landscape {
+    padding: 0.2rem 0.45rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+  }
+  .pubg-quick-toolbar {
+    padding-top: 0 !important;
+    gap: 0.2rem !important;
+  }
+  .pubg-quick-tool-btn {
+    padding: 0.12rem 0.25rem !important;
+    font-size: 0.58rem !important;
+  }
+
+  /* Bottom HUD Strip */
+  .pubg-bottom-strip {
+    height: 1.7rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  .pubg-bottom-location {
+    font-size: 0.6rem !important;
+  }
+  .pubg-bottom-relay-btn {
+    padding: 0.1rem 0.35rem !important;
+    font-size: 0.6rem !important;
+  }
+  .pubg-bottom-title-btn {
+    padding: 0.1rem 0.35rem !important;
+    font-size: 0.6rem !important;
+  }
+
+  /* Title Screen (IntroScreen) */
+  .pubg-title-header {
+    padding: 0.35rem 0.7rem !important;
+  }
+  .pubg-title-h1 {
+    font-size: 2.25rem !important;
+    margin-bottom: 0.15rem !important;
+    line-height: 0.9 !important;
+  }
+  .pubg-title-separator {
+    margin-top: 0.1rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+  .pubg-title-server-pill {
+    padding: 0.15rem 0.4rem !important;
+    margin-bottom: 0.4rem !important;
+    font-size: 0.6rem !important;
+  }
+  .pubg-title-press-indicator {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.65rem !important;
+  }
+  .pubg-title-footer {
+    padding: 0.25rem 0.7rem !important;
+    font-size: 0.5rem !important;
+  }
+
+  /* Modals in Mobile Landscape */
+  .pubg-modal-card {
+    max-height: 96vh !important;
+    margin: 0.25rem !important;
+  }
+  .pubg-modal-header {
+    padding: 0.35rem 0.65rem !important;
+  }
+  .pubg-modal-body {
+    padding: 0.45rem 0.65rem !important;
+    gap: 0.4rem !important;
+  }
+  .pubg-modal-title {
+    font-size: 0.95rem !important;
+  }
+  .pubg-modal-filter-bar {
+    padding: 0.2rem 0.65rem !important;
+  }
+  .pubg-modal-footer {
+    padding: 0.3rem 0.65rem !important;
+  }
+}
+
+/* Extra Compact Screen rules (mobile devices) */
+@media (max-width: 640px) {
+  .pubg-avatar-img {
+    width: 2rem !important;
+    height: 2rem !important;
+  }
+  .pubg-avatar-name {
+    font-size: 0.75rem !important;
+  }
+  .arcade-card-landscape {
+    width: 180px !important;
+    height: 70px !important;
+  }
+  .pubg-bottom-launch-hub {
+    max-width: 180px !important;
+    bottom: 2.2rem !important;
+  }
+  .pubg-start-btn-landscape {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 0.82rem !important;
+  }
+  .pubg-quick-tool-btn {
+    font-size: 0.62rem !important;
+  }
+}
+
 

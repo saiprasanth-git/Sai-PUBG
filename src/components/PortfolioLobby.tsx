@@ -122,11 +122,11 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
       </div>
 
       {/* 2. TOP HUD BAR (Player Profile, Currencies, Conqueror Pass, Contact CTA) */}
-      <div className="absolute top-0 inset-x-0 p-2 sm:p-4 md:p-5 flex items-start justify-between z-20 pointer-events-auto">
+      <div className="pubg-top-hud absolute top-0 inset-x-0 p-1.5 sm:p-3 md:p-4 flex items-start justify-between z-20 pointer-events-auto">
         {/* Top Left: Player Avatar, Level, Callsign, Rank (Opens Operative Dossier) */}
         <div
           onClick={() => handleOpenTab('profile_dossier')}
-          className="group flex items-center space-x-2 sm:space-x-3 bg-black/80 hover:bg-black/95 backdrop-blur-md p-1.5 sm:p-2 border border-white/20 hover:border-[#FFB900] cursor-pointer transition-all shadow-lg w-fit"
+          className="pubg-avatar-box group flex items-center space-x-1.5 sm:space-x-2.5 bg-black/80 hover:bg-black/95 backdrop-blur-md p-1 sm:p-1.5 border border-white/20 hover:border-[#FFB900] cursor-pointer transition-all shadow-lg w-fit"
         >
           {/* Avatar with LV badge */}
           <div className="relative">
@@ -134,22 +134,22 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               src={profile.avatar}
               alt={profile.name}
               referrerPolicy="no-referrer"
-              className="w-9 h-9 sm:w-11 sm:h-11 object-cover border border-[#FFB900]"
+              className="pubg-avatar-img w-7 h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 object-cover border border-[#FFB900]"
             />
-            <div className="absolute -bottom-1 -right-1 bg-[#FFB900] text-[#080B0D] font-display font-black text-[9px] px-1 py-0.2">
+            <div className="absolute -bottom-1 -right-1 bg-[#FFB900] text-[#080B0D] font-display font-black text-[7px] sm:text-[8px] px-0.5 py-0.1 leading-none">
               LV.{profile.level}
             </div>
           </div>
 
           {/* Player Info */}
-          <div className="pr-1 sm:pr-2">
-            <div className="flex items-center space-x-1.5">
-              <Crown className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span className="font-display font-black text-xs sm:text-sm text-white tracking-wider uppercase group-hover:text-[#FFB900] transition-colors">
+          <div className="pr-1">
+            <div className="flex items-center space-x-1">
+              <Crown className="w-3 h-3 text-[#FFB900]" />
+              <span className="pubg-avatar-name font-display font-black text-[11px] sm:text-xs md:text-sm text-white tracking-wider uppercase group-hover:text-[#FFB900] transition-colors leading-tight">
                 {profile.name}
               </span>
             </div>
-            <div className="text-[9px] sm:text-[10px] font-mono-tech text-[#FFB900] flex items-center gap-1 sm:gap-1.5">
+            <div className="pubg-avatar-rank text-[8px] sm:text-[9px] font-mono-tech text-[#FFB900] flex items-center gap-1 leading-tight">
               <span>{profile.rank}</span>
               <span className="text-white/40 hidden sm:inline">•</span>
               <span className="text-[#34D399] font-bold hidden sm:inline">● {profile.serverPing}</span>
@@ -158,25 +158,25 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         </div>
 
         {/* Top Right & Right Side: Currencies + Right-Side Navigation (PROJECTS, HOBBIES, SKILLS) */}
-        <div className="flex flex-col items-end space-y-2.5 pointer-events-auto">
+        <div className="flex flex-col items-end space-y-2 pointer-events-auto">
           {/* Top Bar: Currencies, Conqueror Pass, and Contact Button */}
-          <div className="flex items-center space-x-1.5 sm:space-x-2.5">
+          <div className="flex items-center space-x-1 sm:space-x-2">
             {/* Currency 1: BP (Years Experience) */}
-            <div className="flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-2 sm:px-2.5 py-1 border border-white/15">
-              <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#FFB900] text-[#080B0D] font-black text-[8px] sm:text-[9px] flex items-center justify-center font-display">
+            <div className="pubg-top-currency flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-1.5 sm:px-2 py-0.5 sm:py-1 border border-white/15">
+              <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFB900] text-[#080B0D] font-black text-[7px] sm:text-[8px] flex items-center justify-center font-display">
                 G
               </div>
-              <div className="font-mono-tech text-[11px] sm:text-xs text-[#FFB900] font-bold">
+              <div className="font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold">
                 {profile.currencies.bp}
               </div>
             </div>
 
             {/* Currency 2: UC (Code Repos / Commits) */}
-            <div className="flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-2 sm:px-2.5 py-1 border border-white/15">
-              <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-xs bg-[#4FC3F7] text-[#080B0D] font-black text-[8px] sm:text-[9px] flex items-center justify-center font-display">
+            <div className="pubg-top-currency flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-1.5 sm:px-2 py-0.5 sm:py-1 border border-white/15">
+              <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-xs bg-[#4FC3F7] text-[#080B0D] font-black text-[7px] sm:text-[8px] flex items-center justify-center font-display">
                 ★
               </div>
-              <div className="font-mono-tech text-[11px] sm:text-xs text-white font-bold">
+              <div className="font-mono-tech text-[10px] sm:text-[11px] text-white font-bold">
                 {profile.currencies.uc}
               </div>
             </div>
@@ -185,10 +185,10 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
             <button
               id="rp-pass-btn"
               onClick={() => handleOpenTab('experience')}
-              className="flex items-center space-x-1.5 bg-gradient-to-r from-[#D8940B] to-[#FFB900] text-[#080B0D] px-2.5 sm:px-3 py-1 font-display font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition-all"
+              className="pubg-top-pass-btn flex items-center space-x-1 sm:space-x-1.5 bg-gradient-to-r from-[#D8940B] to-[#FFB900] text-[#080B0D] px-2 sm:px-2.5 py-0.5 sm:py-1 font-display font-black text-[11px] sm:text-xs uppercase tracking-wider shadow-md hover:brightness-110 transition-all"
               title="Open Career Experience & Resume Hub"
             >
-              <Flame className="w-3.5 h-3.5 fill-current" />
+              <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-current" />
               <span className="hidden sm:inline">CONQUEROR PASS</span>
               <span className="sm:hidden">PASS</span>
             </button>
@@ -197,37 +197,37 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
             <button
               id="shop-hire-btn"
               onClick={() => handleOpenTab('contact')}
-              className="flex items-center space-x-1 bg-[#1C232B] hover:bg-[#26303B] text-[#FFB900] border border-[#FFB900]/50 px-2 sm:px-2.5 py-1 font-display font-bold text-xs uppercase tracking-wider transition-all"
+              className="pubg-top-contact-btn flex items-center space-x-1 bg-[#1C232B] hover:bg-[#26303B] text-[#FFB900] border border-[#FFB900]/50 px-2 sm:px-2.5 py-0.5 sm:py-1 font-display font-bold text-[11px] sm:text-xs uppercase tracking-wider transition-all"
             >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#FFB900]" />
+              <ShoppingBag className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FFB900]" />
               <span>CONTACT</span>
             </button>
           </div>
 
           {/* RIGHT-HAND SIDE TACTICAL NAVIGATION PANELS */}
-          <div className="flex flex-col space-y-1.5 sm:space-y-2 w-44 sm:w-52">
+          <div className="pubg-right-nav-container flex flex-col space-y-1 sm:space-y-1.5 w-40 sm:w-48">
             {/* 1. PROJECTS */}
             <button
               id="hud-nav-projects"
               onClick={() => handleOpenTab('projects')}
               onMouseEnter={() => sound.playHover()}
-              className="group hud-panel flex items-center justify-between p-2 sm:p-2.5 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
+              className="pubg-right-nav-btn group hud-panel flex items-center justify-between p-1.5 sm:p-2 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
             >
-              <div className="flex items-center space-x-2">
-                <div className="p-1 sm:p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
-                  <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="p-1 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
+                  <Layers className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </div>
                 <div>
-                  <div className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors flex items-center gap-1.5">
+                  <div className="pubg-right-nav-title font-display font-black text-[10px] sm:text-[11px] text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors flex items-center gap-1.5">
                     <span>PROJECTS</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
                   </div>
-                  <div className="text-[8px] sm:text-[9px] font-mono-tech text-[#A6A6A0]">
+                  <div className="pubg-right-nav-subtitle text-[8px] font-mono-tech text-[#A6A6A0]">
                     GitHub Repositories
                   </div>
                 </div>
               </div>
-              <span className="bg-red-600 text-white font-mono-tech font-bold text-[8px] sm:text-[9px] px-1 py-0.2">
+              <span className="pubg-right-nav-badge bg-red-600 text-white font-mono-tech font-bold text-[7px] sm:text-[8px] px-1 py-0.1">
                 CODE
               </span>
             </button>
@@ -237,22 +237,22 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               id="hud-nav-hobbies"
               onClick={() => handleOpenTab('hobbies')}
               onMouseEnter={() => sound.playHover()}
-              className="group hud-panel flex items-center justify-between p-2 sm:p-2.5 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
+              className="pubg-right-nav-btn group hud-panel flex items-center justify-between p-1.5 sm:p-2 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
             >
-              <div className="flex items-center space-x-2">
-                <div className="p-1 sm:p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
-                  <Gamepad2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="p-1 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
+                  <Gamepad2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </div>
                 <div>
-                  <div className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
+                  <div className="pubg-right-nav-title font-display font-black text-[10px] sm:text-[11px] text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
                     HOBBIES
                   </div>
-                  <div className="text-[8px] sm:text-[9px] font-mono-tech text-[#A6A6A0]">
+                  <div className="pubg-right-nav-subtitle text-[8px] font-mono-tech text-[#A6A6A0]">
                     Gaming & Passions
                   </div>
                 </div>
               </div>
-              <ChevronRight className="w-3.5 h-3.5 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
+              <ChevronRight className="w-3 h-3 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
             </button>
 
             {/* 3. SKILLS */}
@@ -260,29 +260,29 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               id="hud-nav-skills"
               onClick={() => handleOpenTab('skills')}
               onMouseEnter={() => sound.playHover()}
-              className="group hud-panel flex items-center justify-between p-2 sm:p-2.5 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
+              className="pubg-right-nav-btn group hud-panel flex items-center justify-between p-1.5 sm:p-2 text-left border-r-3 border-r-[#FFB900] bg-black/85 hover:bg-black/95 transition-all shadow-md"
             >
-              <div className="flex items-center space-x-2">
-                <div className="p-1 sm:p-1.5 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
-                  <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              <div className="flex items-center space-x-1.5 sm:space-x-2">
+                <div className="p-1 bg-[#FFB900]/15 text-[#FFB900] group-hover:bg-[#FFB900] group-hover:text-[#080B0D] transition-colors rounded-[2px]">
+                  <Cpu className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </div>
                 <div>
-                  <div className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
+                  <div className="pubg-right-nav-title font-display font-black text-[10px] sm:text-[11px] text-white uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
                     SKILLS
                   </div>
-                  <div className="text-[8px] sm:text-[9px] font-mono-tech text-[#A6A6A0]">
+                  <div className="pubg-right-nav-subtitle text-[8px] font-mono-tech text-[#A6A6A0]">
                     Tech & LLM Stacks
                   </div>
                 </div>
               </div>
-              <ChevronRight className="w-3.5 h-3.5 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
+              <ChevronRight className="w-3 h-3 text-[#A6A6A0] group-hover:text-[#FFB900] group-hover:translate-x-0.5 transition-all" />
             </button>
           </div>
         </div>
       </div>
 
       {/* 3. BOTTOM-LEFT TACTICAL LAUNCH HUD: Map Card + START Button + Quick Toolbar */}
-      <div className="absolute left-2 sm:left-4 md:left-6 bottom-13 sm:bottom-15 z-20 flex flex-col space-y-2 sm:space-y-2.5 max-w-[240px] sm:max-w-[260px] pointer-events-auto">
+      <div className="pubg-bottom-launch-hub absolute left-2 sm:left-4 md:left-5 bottom-12 sm:bottom-14 z-20 flex flex-col space-y-1.5 sm:space-y-2 max-w-[200px] sm:max-w-[225px] md:max-w-[245px] pointer-events-auto">
         {/* AUTHENTIC MAP SELECTOR HUD CARD (Stafford) - Click plays quick sound, doesn't open experience */}
         <ArcadeModeCard
           region="Texas"
@@ -301,52 +301,52 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
           id="pubg-main-start-btn"
           onClick={handleStartGame}
           onMouseEnter={() => sound.playHover()}
-          className="pubg-start-btn w-full py-2 sm:py-2.5 px-4 flex items-center justify-center space-x-2 text-[#080B0D] font-display font-black text-lg sm:text-xl tracking-[0.18em] uppercase shadow-[0_8px_25px_rgba(255,185,0,0.45)] transform hover:scale-[1.01] active:scale-[0.98] transition-all"
+          className="pubg-start-btn pubg-start-btn-landscape w-full py-1.5 sm:py-2 px-3 sm:px-4 flex items-center justify-center space-x-1.5 sm:space-x-2 text-[#080B0D] font-display font-black text-sm sm:text-base md:text-lg tracking-[0.15em] uppercase shadow-[0_6px_20px_rgba(255,185,0,0.4)] transform hover:scale-[1.01] active:scale-[0.98] transition-all"
           title="Launch Career Experience & Missions"
         >
-          <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-current text-[#080B0D]" />
+          <Play className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current text-[#080B0D]" />
           <span>START</span>
         </button>
 
         {/* Tactical Quick Action Toolbar (Voice, Mic, Invite 10/151) */}
-        <div className="flex items-center space-x-1.5 pt-0.5">
+        <div className="pubg-quick-toolbar flex items-center space-x-1 pt-0.5">
           <button
             onClick={toggleSound}
             title={soundState.isMuted ? "Unmute Audio" : "Mute Audio"}
-            className="hud-panel p-1.5 sm:p-2 text-[#C8C7BE] hover:text-[#F2C62D] hover:border-[#F2C62D] transition-colors"
+            className="pubg-quick-tool-btn hud-panel p-1 sm:p-1.5 text-[#C8C7BE] hover:text-[#F2C62D] hover:border-[#F2C62D] transition-colors"
           >
-            {soundState.isMuted ? <VolumeX className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400" /> : <Volume2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F2C62D]" />}
+            {soundState.isMuted ? <VolumeX className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-400" /> : <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F2C62D]" />}
           </button>
           
           <button
             onClick={() => sound.playClick()}
             title="Voice Channel: All Team"
-            className="hud-panel p-1.5 sm:p-2 text-[#C8C7BE] hover:text-[#F2C62D] hover:border-[#F2C62D] transition-colors"
+            className="pubg-quick-tool-btn hud-panel p-1 sm:p-1.5 text-[#C8C7BE] hover:text-[#F2C62D] hover:border-[#F2C62D] transition-colors"
           >
-            <Mic className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#34D399]" />
+            <Mic className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#34D399]" />
           </button>
 
           {/* Invite 10/151 button (Opens Contact/Team Dispatch modal) */}
           <button
             onClick={() => handleOpenTab('contact')}
             onMouseEnter={() => sound.playHover()}
-            className="hud-panel px-2.5 sm:px-3 py-1.5 flex items-center space-x-1.5 text-[#C8C7BE] hover:text-white hover:border-[#F2C62D] transition-colors flex-1 justify-between"
+            className="pubg-quick-tool-btn hud-panel px-2 sm:px-2.5 py-1 flex items-center space-x-1 text-[#C8C7BE] hover:text-white hover:border-[#F2C62D] transition-colors flex-1 justify-between"
           >
-            <div className="flex items-center space-x-1.5">
-              <UserPlus className="w-3.5 h-3.5 text-[#F2C62D]" />
-              <span className="font-condensed font-bold text-xs uppercase tracking-wider">
+            <div className="flex items-center space-x-1">
+              <UserPlus className="w-3 h-3 text-[#F2C62D]" />
+              <span className="font-condensed font-bold text-[10px] sm:text-[11px] uppercase tracking-wider">
                 Invite <span className="text-[#F2C62D]">10/151</span>
               </span>
             </div>
-            <ChevronRight className="w-3 h-3 text-[#A6A6A0]" />
+            <ChevronRight className="w-3 h-3 text-[#F2C62D]" />
           </button>
         </div>
       </div>
 
       {/* 4. BOTTOM HUD STRIP (Location, Relays / Social Links, Title Return) */}
-      <div className="absolute bottom-0 inset-x-0 h-11 sm:h-12 bg-black/90 backdrop-blur-md border-t border-[#3A3F45] px-2 sm:px-6 flex items-center justify-between z-20 pointer-events-auto">
+      <div className="pubg-bottom-strip absolute bottom-0 inset-x-0 h-11 sm:h-12 bg-black/90 backdrop-blur-md border-t border-[#3A3F45] px-2 sm:px-6 flex items-center justify-between z-20 pointer-events-auto">
         {/* Left Server/Location Tag with Globe */}
-        <div className="flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-xs font-mono-tech text-[#A6A6A0]">
+        <div className="pubg-bottom-location flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-xs font-mono-tech text-[#A6A6A0]">
           <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#34D399]" />
           <span className="hidden xs:inline text-[#7A838F]">LOCATION:</span>
           <span className="text-white font-bold">{profile.location}</span>
@@ -368,7 +368,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                     handleOpenTab('contact');
                   }}
                   title={soc.name}
-                  className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
+                  className="pubg-bottom-relay-btn flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
                 >
                   <Radio className="w-3.5 h-3.5" />
                   <span className="font-condensed font-bold text-[11px] sm:text-xs uppercase tracking-wider hidden md:inline">
@@ -385,7 +385,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
                 rel="noopener noreferrer"
                 title={soc.name}
                 onClick={() => sound.playClick()}
-                className="flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
+                className="pubg-bottom-relay-btn flex items-center space-x-1 sm:space-x-1.5 px-2 sm:px-2.5 py-1 bg-[#1A222B]/90 hover:bg-[#FFB900] text-[#C8C7BE] hover:text-[#080B0D] border border-white/10 hover:border-[#FFB900] transition-colors rounded-[2px]"
               >
                 {soc.name === 'GitHub' && <Github className="w-3.5 h-3.5" />}
                 {soc.name === 'Direct Email' && <Mail className="w-3.5 h-3.5" />}
@@ -407,7 +407,7 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
               sound.playClick();
               onReturnToTitle();
             }}
-            className="flex items-center space-x-1 bg-[#181E24] hover:bg-[#252E38] border border-white/10 text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] hover:text-white px-2.5 py-1 sm:py-1.5 transition-colors rounded-[2px]"
+            className="pubg-bottom-title-btn flex items-center space-x-1 bg-[#181E24] hover:bg-[#252E38] border border-white/10 text-[9px] sm:text-[10px] font-mono-tech text-[#A6A6A0] hover:text-white px-2.5 py-1 sm:py-1.5 transition-colors rounded-[2px]"
             title="Return to Title Screen"
           >
             <RotateCcw className="w-3 h-3 text-[#FFB900]" />

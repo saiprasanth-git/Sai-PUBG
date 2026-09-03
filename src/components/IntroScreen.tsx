@@ -73,7 +73,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
       <motion.div 
         animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? -10 : 0 }}
         transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="absolute top-0 left-0 w-full flex items-center justify-between px-4 md:px-8 py-4 md:py-6 z-10 pointer-events-auto"
+        className="pubg-title-header absolute top-0 left-0 w-full flex items-center justify-between px-4 md:px-8 py-4 md:py-6 z-10 pointer-events-auto"
       >
         <div className="text-[10px] md:text-xs tracking-[0.2em] text-[#FFB900] font-mono uppercase font-bold flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-ping" />
@@ -101,19 +101,19 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
           className="max-w-2xl w-full flex flex-col items-end"
         >
           {/* Huge Distressed Golden Title: SAI PRASANTH */}
-          <h1 className="font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tight uppercase pubg-distressed-title text-right mb-4 filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
+          <h1 className="pubg-title-h1 font-display font-black text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tight uppercase pubg-distressed-title text-right mb-4 filter drop-shadow-[0_10px_25px_rgba(0,0,0,0.9)]">
             {profile.mainTitle}
           </h1>
 
           {/* Golden Separator Accent */}
-          <div className="w-full flex items-center justify-end space-x-2 my-2 mb-6">
+          <div className="pubg-title-separator w-full flex items-center justify-end space-x-2 my-2 mb-6">
             <div className="h-[2px] w-24 bg-[#FFB900]" />
             <div className="h-[4px] w-4 bg-[#FFB900]" />
             <div className="h-[2px] w-8 bg-[#FFB900]/40" />
           </div>
 
           {/* Server Info Pill */}
-          <div className="flex items-center space-x-3 bg-black/75 backdrop-blur-md px-4 py-2 border border-white/10 mb-8 text-xs font-mono-tech text-[#A6A6A0]">
+          <div className="pubg-title-server-pill flex items-center space-x-3 bg-black/75 backdrop-blur-md px-4 py-2 border border-white/10 mb-8 text-xs font-mono-tech text-[#A6A6A0]">
             <span className="text-[#34D399]">● {profile.serverPing}</span>
             <span className="text-white/30">|</span>
             <span>{profile.serverRegion}</span>
@@ -125,7 +125,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
           <motion.div
             animate={{ scale: [1, 1.03, 1], opacity: [0.85, 1, 0.85] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-            className="flex items-center space-x-3 bg-[#FFB900]/10 border border-[#FFB900] px-5 sm:px-6 py-3 cursor-pointer hover:bg-[#FFB900]/20 transition-all shadow-[0_0_20px_rgba(255,185,0,0.3)]"
+            className="pubg-title-press-indicator flex items-center space-x-3 bg-[#FFB900]/10 border border-[#FFB900] px-5 sm:px-6 py-3 cursor-pointer hover:bg-[#FFB900]/20 transition-all shadow-[0_0_20px_rgba(255,185,0,0.3)]"
           >
             <div className="w-2.5 h-2.5 bg-[#FFB900] rounded-sm animate-pulse" />
             <span className="font-display font-bold text-xs sm:text-sm md:text-base tracking-[0.25em] text-[#FFB900] uppercase">
@@ -139,7 +139,7 @@ export const IntroScreen: React.FC<IntroScreenProps> = ({ profile, onEnterLobby 
       <motion.div 
         animate={{ opacity: isTransitioning ? 0 : 1 }}
         transition={{ duration: 0.25, ease: 'easeOut' }}
-        className="absolute bottom-0 left-0 w-full flex items-center justify-between px-4 md:px-8 py-4 md:py-6 z-10 text-[9px] md:text-[10px] text-white/40 font-mono uppercase tracking-wider pointer-events-none"
+        className="pubg-title-footer absolute bottom-0 left-0 w-full flex items-center justify-between px-4 md:px-8 py-4 md:py-6 z-10 text-[9px] md:text-[10px] text-white/40 font-mono uppercase tracking-wider pointer-events-none"
       >
         <span>COORDINATES: {profile.coordinates}</span>
         <span>PROD BUILD: 4.8.2 // CLOUD RUN SECURE</span>

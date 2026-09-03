@@ -23,17 +23,17 @@ export const ExperienceModal: React.FC<ExperienceModalProps> = ({ experiences, p
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ duration: 0.2 }}
-        className="relative w-full max-w-3xl max-h-[88vh] flex flex-col bg-[#0E1216] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.9)] overflow-hidden"
+        className="pubg-modal-card relative w-full max-w-3xl max-h-[88vh] flex flex-col bg-[#0E1216] border-2 border-[#FFB900] shadow-[0_0_60px_rgba(0,0,0,0.9)] overflow-hidden"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-5 border-b border-[#3A3F45] bg-[#12161C]">
+        <div className="pubg-modal-header flex items-center justify-between p-4 sm:p-5 border-b border-[#3A3F45] bg-[#12161C]">
           <div className="flex items-center gap-2.5">
             <Award className="w-5 h-5 text-[#FFB900]" />
             <div>
               <div className="font-mono-tech text-[9px] text-[#FFB900] uppercase font-bold tracking-widest">
                 CAREER PASS // RECORD & RESUME
               </div>
-              <h2 className="font-display font-black text-lg sm:text-xl text-white uppercase tracking-wide">
+              <h2 className="pubg-modal-title font-display font-black text-lg sm:text-xl text-white uppercase tracking-wide">
                 Experience & Resume
               </h2>
             </div>
