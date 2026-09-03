@@ -299,6 +299,7 @@ export const EXPERIENCE_ITEMS: ExperienceItem[] = [
     role: 'Staff Backend & AI Engineer',
     dates: '2024 – PRESENT',
     location: 'Stafford, TX (Remote)',
+    type: 'Full-time',
     description: 'Leading production LLM agent architectures, high-performance Python microservices, and safety-critical verification infrastructure across distributed cloud services.',
     responsibilities: [
       'Architecting multi-agent orchestration engines with strict tool verification and sandboxed execution',
