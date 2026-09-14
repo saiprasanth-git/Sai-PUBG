@@ -383,8 +383,8 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: 'GitHub', handle: 'github.com/saiprasanth-git', url: 'https://github.com/saiprasanth-git', icon: 'Github', highlight: true },
   { name: 'Direct Email', handle: 'prasanthgrandhisiri@gmail.com', url: 'mailto:prasanthgrandhisiri@gmail.com', icon: 'Mail', highlight: true },
-  { name: 'X (Twitter)', handle: '@saiprasanth', url: 'https://x.com', icon: 'Twitter', highlight: true },
-  { name: 'Instagram', handle: '@saiprasanth', url: 'https://instagram.com', icon: 'Instagram', highlight: true },
+  { name: 'X (Twitter)', handle: '@prasanth3201', url: 'https://x.com/prasanth3201?s=11', icon: 'Twitter', highlight: true },
+  { name: 'Instagram', handle: '@prasanth.grandhisiri', url: 'https://www.instagram.com/prasanth.grandhisiri?stkn=MXNsMjc3OXppdWIzZg%3D%3D&utm_source=qr', icon: 'Instagram', highlight: true },
   { name: 'Comm Channel', handle: 'Secure Dispatch Relay', url: 'mailto:prasanthgrandhisiri@gmail.com', icon: 'Radio' },
 ];
 

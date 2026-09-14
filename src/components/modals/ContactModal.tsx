@@ -128,10 +128,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({ profile, socials, on
                   <span className="font-bold text-xs text-[#FFB900]">𝕏</span>
                 </div>
                 <div className="font-mono-tech text-xs text-white font-bold">
-                  @saiprasanth
+                  @prasanth3201
                 </div>
                 <a
-                  href="https://x.com"
+                  href="https://x.com/prasanth3201?s=11"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[10px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"
@@ -147,10 +147,10 @@ export const ContactModal: React.FC<ContactModalProps> = ({ profile, socials, on
                   <span className="text-xs text-[#FFB900] font-bold">IG</span>
                 </div>
                 <div className="font-mono-tech text-xs text-white font-bold">
-                  @saiprasanth
+                  @prasanth.grandhisiri
                 </div>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/prasanth.grandhisiri?stkn=MXNsMjc3OXppdWIzZg%3D%3D&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center space-x-1 bg-[#1E252E] hover:bg-[#2A3440] text-[10px] font-mono-tech text-[#FFB900] py-1 border border-white/10 transition-colors"

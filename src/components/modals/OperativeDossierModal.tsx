@@ -247,7 +247,7 @@ export const OperativeDossierModal: React.FC<OperativeDossierModalProps> = ({
               <span>GITHUB</span>
             </a>
             <a
-              href="https://x.com"
+              href="https://x.com/prasanth3201?s=11"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => sound.playClick()}
@@ -257,7 +257,7 @@ export const OperativeDossierModal: React.FC<OperativeDossierModalProps> = ({
               <span>TWITTER</span>
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/prasanth.grandhisiri?stkn=MXNsMjc3OXppdWIzZg%3D%3D&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => sound.playClick()}

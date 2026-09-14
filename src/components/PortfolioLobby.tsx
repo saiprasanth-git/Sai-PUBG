@@ -22,8 +22,11 @@ import {
   Globe,
   UserPlus,
   Mic,
-  Instagram
+  Instagram,
+  Clock
 } from 'lucide-react';
+import { db } from '../firebase';
+import { doc, onSnapshot, setDoc, increment } from 'firebase/firestore';
 import { ArcadeModeCard } from './ArcadeModeCard';
 import { OperativeDossierModal } from './modals/OperativeDossierModal';
 import { HobbiesModal } from './modals/HobbiesModal';
@@ -60,6 +63,96 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
     isMuted: sound.getMutedState(),
     volume: sound.getVolume()
   });
+
+  // Real-time Date and Time State (Beside 2026.4 in Lobby HUD)
+  const getFormattedDateTime = () => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    return {
+      year,
+      date: `${year}-${month}-${day}`,
+      dateShort: `${month}-${day}`,
+      time: `${hours}:${minutes}:${seconds}`,
+      full: `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+    };
+  };
+
+  const [currentDateTime, setCurrentDateTime] = useState(getFormattedDateTime);
+
+  // Real-time site visitors counter (synced with Firebase Firestore)
+  const [visitorCount, setVisitorCount] = useState<number>(() => {
+    try {
+      const stored = localStorage.getItem('sai_portfolio_visitor_count');
+      if (stored) {
+        const val = parseInt(stored, 10);
+        if (!isNaN(val) && val > 0) return val;
+      }
+    } catch {
+      // ignore
+    }
+    return 1;
+  });
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentDateTime(getFormattedDateTime());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    // 1. Listen for real-time visitor count updates across all users via Firestore
+    const statsDocRef = doc(db, 'stats', 'visitors');
+    const unsubscribeSnapshot = onSnapshot(
+      statsDocRef,
+      (snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.data();
+          if (typeof data.visitors === 'number') {
+            setVisitorCount(data.visitors);
+            try {
+              localStorage.setItem('sai_portfolio_visitor_count', data.visitors.toString());
+            } catch {
+              // ignore
+            }
+          }
+        }
+      },
+      (error) => {
+        console.warn('Firestore visitor snapshot error, using local tracking:', error);
+      }
+    );
+
+    // 2. Increment visitor count once per user session
+    try {
+      const sessionKey = 'sai_portfolio_session_tracked';
+      const alreadyTracked = sessionStorage.getItem(sessionKey);
+      if (!alreadyTracked) {
+        sessionStorage.setItem(sessionKey, '1');
+        setDoc(
+          statsDocRef,
+          {
+            visitors: increment(1),
+            updatedAt: new Date().toISOString(),
+          },
+          { merge: true }
+        ).catch((err) => {
+          console.warn('Could not increment Firestore visitor doc:', err);
+        });
+      }
+    } catch {
+      // ignore
+    }
+
+    return () => {
+      unsubscribeSnapshot();
+    };
+  }, []);
 
   useEffect(() => {
     // Subscribe to sound changes
@@ -161,24 +254,28 @@ export const PortfolioLobby: React.FC<PortfolioLobbyProps> = ({
         <div className="flex flex-col items-end space-y-2 pointer-events-auto">
           {/* Top Bar: Currencies, Conqueror Pass, and Contact Button */}
           <div className="flex items-center space-x-1 sm:space-x-2">
-            {/* Currency 1: BP (Years Experience) */}
-            <div className="pubg-top-currency flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-1.5 sm:px-2 py-0.5 sm:py-1 border border-white/15">
-              <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-[#FFB900] text-[#080B0D] font-black text-[7px] sm:text-[8px] flex items-center justify-center font-display">
-                G
-              </div>
-              <div className="font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold">
-                {profile.currencies.bp}
+            {/* Tactical Real-Time Date & Time */}
+            <div
+              id="lobby-realtime-clock"
+              className="pubg-top-currency pubg-top-datetime flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-1.5 sm:px-2 py-0.5 sm:py-1 border border-white/15 cursor-default select-none"
+              title={`Tactical Real-Time System Clock: ${currentDateTime.full}`}
+            >
+              <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#34D399]" />
+              <div className="font-mono-tech text-[9px] sm:text-[10px] text-white/90 font-semibold tracking-wide whitespace-nowrap flex items-center gap-1">
+                <span className="hidden md:inline text-[#C8C7BE]">{currentDateTime.date}</span>
+                <span className="md:hidden hidden xs:inline text-[#C8C7BE]">{currentDateTime.dateShort}</span>
+                <span className="text-[#34D399] font-bold">{currentDateTime.time}</span>
               </div>
             </div>
 
-            {/* Currency 2: UC (Code Repos / Commits) */}
-            <div className="pubg-top-currency flex items-center space-x-1 sm:space-x-1.5 bg-black/75 backdrop-blur-md px-1.5 sm:px-2 py-0.5 sm:py-1 border border-white/15">
-              <div className="w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-xs bg-[#4FC3F7] text-[#080B0D] font-black text-[7px] sm:text-[8px] flex items-center justify-center font-display">
-                ★
-              </div>
-              <div className="font-mono-tech text-[10px] sm:text-[11px] text-white font-bold">
-                {profile.currencies.uc}
-              </div>
+            {/* Real-Time Site Visitors Count (Numbers Only) */}
+            <div
+              id="lobby-visitor-counter"
+              className="pubg-top-currency flex items-center bg-black/75 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 border border-white/15 cursor-default select-none"
+            >
+              <span className="font-mono-tech text-[10px] sm:text-[11px] text-[#FFB900] font-bold tracking-wider">
+                {visitorCount.toLocaleString()}
+              </span>
             </div>
 
             {/* S-Tier Career Pass Button */}

@@ -1,0 +1,26 @@
+{
+  "entities": {
+    "siteStats": {
+      "title": "SiteStats",
+      "description": "Real-time global site visitor stats and analytics metrics",
+      "type": "object",
+      "properties": {
+        "visitors": {
+          "type": "number",
+          "description": "Total unique visitor count counter"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "Server or client timestamp of last visit update"
+        }
+      },
+      "required": ["visitors"]
+    }
+  },
+  "firestore": {
+    "/stats/{statId}": {
+      "schema": "siteStats",
+      "description": "Global application stats document (e.g. /stats/visitors)"
+    }
+  }
+}

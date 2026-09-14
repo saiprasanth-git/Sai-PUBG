@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // Public real-time visitor stats
+    match /stats/{statId} {
+      allow get: if isValidId(statId);
+      allow list: if false;
+      
+      // Allow atomic increment on visitors counter
+      allow create: if isValidId(statId)
+        && request.resource.data.keys().hasAll(['visitors'])
+        && request.resource.data.visitors is number
+        && request.resource.data.visitors >= 0;
+        
+      allow update: if isValidId(statId)
+        && request.resource.data.visitors is number
+        && (
+          // Allow positive increments
+          request.resource.data.visitors >= resource.data.visitors
+        );
+        
+      allow delete: if false;
+    }
+  }
+}
