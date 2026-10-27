@@ -295,7 +295,7 @@ export const PROJECTS: Project[] = [
 export const EXPERIENCE_ITEMS: ExperienceItem[] = [
   {
     id: 'exp-1',
-    company: 'ConocoPhillips',
+    company: 'Optum',
     role: 'Staff Backend & AI Engineer',
     dates: '2024 – PRESENT',
     location: 'Stafford, TX (Remote)',
